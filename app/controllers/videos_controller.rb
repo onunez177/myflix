@@ -2,6 +2,10 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
-      render 'ui/video.html.haml'
+  end
+
+  def index
+    @videos = Video.all
+    @genres = Genre.all
   end
 end

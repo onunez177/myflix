@@ -10,12 +10,13 @@ gem 'uglifier', '~> 2.2.1'
 
 gem 'builder', '3.1.4'
 gem 'coderay', '1.0.9'
-gem "shoulda-matchers", "~> 2.3.0"
+
 
 group :development do
   gem 'sqlite3'
   gem 'pry'
   gem 'pry-nav'
+  gem "shoulda-matchers", "~> 2.3.0"
 end
 
 group :production do
