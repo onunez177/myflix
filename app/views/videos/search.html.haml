@@ -1,0 +1,5 @@
+%h1 You entered a search! Here are your results:
+
+- @results.each do |result|
+  .video.span2
+    = link_to image_tag("/tmp/#{result.small_cover_url}.jpg"), video_path(result)
