@@ -16,7 +16,6 @@ group :development do
   gem 'sqlite3'
   gem 'pry'
   gem 'pry-nav'
-  gem "shoulda-matchers", "~> 2.3.0"
 end
 
 group :production do
@@ -28,4 +27,5 @@ gem 'jquery-rails'
 
 group :test, :development do
   gem 'rspec-rails'
+  gem "shoulda-matchers", "~> 2.3.0"
 end
