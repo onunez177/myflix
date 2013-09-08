@@ -13,5 +13,6 @@ class VideosController < ApplicationController
   # Results view can be extracted to a partial? Need to clean it up.
   def search
     @results = Video.search_by_name(params[:name])
+    @search_term = params[:name]
   end
 end
