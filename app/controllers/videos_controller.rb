@@ -1,6 +1,6 @@
 # TODO
 # 1. Extract views to partials
-# 2. Implement Jquery or validations for the search bar so blank entry cannot be valid
+# 2. Implement validations for the search bar so blank entry cannot be valid
 #    right now a blank entry returns all videos (this is horrible)
 
 class VideosController < ApplicationController
@@ -10,10 +10,7 @@ class VideosController < ApplicationController
   end
 
   def index 
-      
-    @genres = Genre.all.each do |genre|  # iterate through all the genres and then pull only the recent 6 videos
-              Genre.recent_videos(genre)
-              end 
+    @genres = Genre.all
   end
 
   def search

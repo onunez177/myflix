@@ -5,7 +5,7 @@ Myflix::Application.routes.draw do
    
   resources :videos, only: [:show, :index] do
     collection do
-      get 'search', to: 'videos#search'
+      post 'search', to: 'videos#search'
     end
     #member do
     #  post 'result', to: 'videos#results'

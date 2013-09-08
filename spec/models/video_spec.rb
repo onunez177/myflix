@@ -1,6 +1,3 @@
-# TODO
-# DRY up these tests, by using factory girl to generate the data needed to run the tests
-
 require 'spec_helper' #we want to require this in all tests
 
 describe Video do
@@ -20,6 +17,7 @@ describe Video do
     Video.create(name: 'futurama', description: 'testing this')
     Video.create(name: 'derp derp', description: 'another test!')
     Video.create(name: 'family guy', description: 'family guy test')
+    
     results = Video.search_by_name('fut')
     expect(results.size).to eq 1
   end
