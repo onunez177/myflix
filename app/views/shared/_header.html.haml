@@ -7,7 +7,7 @@
     %li= link_to "People"
   = form_tag search_videos_path, :method => :get do
     = text_field_tag :name, nil, :placeholder => 'Search for movies'
-    = submit_tag "Search"
+    = submit_tag "Search", class: 'btn'
   #user_links.pull-right
     %ul
       %li.dropdown
