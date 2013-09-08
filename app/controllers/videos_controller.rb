@@ -9,9 +9,11 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
   end
 
-  def index
-    @videos = Video.all
-    @genres = Genre.all
+  def index 
+      
+    @genres = Genre.all.each do |genre|  # iterate through all the genres and then pull only the recent 6 videos
+              Genre.recent_videos(genre)
+              end 
   end
 
   def search
