@@ -1,0 +1,13 @@
+%section.genre
+  %header.clearfix
+    %h1= @genre.name
+    .genre_sorting
+      Sort by:
+      %select(name="")
+        %option(value="a-z") Title: A - Z
+        %option(value="z-a") Title: Z - A
+        %option(value="rating") Rating
+  %article.row
+    - @genre.videos.each do |video|
+      .video.span2
+        = link_to image_tag("/tmp/#{video.small_cover_url}.jpg"), video_path(video)
