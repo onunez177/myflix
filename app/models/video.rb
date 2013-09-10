@@ -5,7 +5,7 @@ class Video < ActiveRecord::Base
   validates :name, :description, presence: true
 
   
-  def self.search_by_name(search_word)
+  def self.search_by_name(search_word) 
     Video.where("name LIKE ?", "#{search_word}%")  
   end
 end

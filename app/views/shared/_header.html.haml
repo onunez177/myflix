@@ -7,7 +7,7 @@
       %li= link_to "My Queue"
       %li= link_to "People"
     = form_tag search_videos_path, :method => :post do
-      = text_field_tag :name, nil, :placeholder => 'Search for movies'
+      = text_field_tag :search_term, nil, :placeholder => 'Search for movies'
       = submit_tag "Search", class: 'btn'
     #user_links.pull-right
       %ul
