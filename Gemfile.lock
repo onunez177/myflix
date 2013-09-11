@@ -44,11 +44,6 @@ GEM
     diff-lcs (1.2.4)
     erubis (2.7.0)
     execjs (2.0.1)
-    factory_girl (4.2.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.2.1)
-      factory_girl (~> 4.2.0)
-      railties (>= 3.0.0)
     haml (4.0.3)
       tilt
     haml-rails (0.4)
@@ -153,7 +148,6 @@ DEPENDENCIES
   builder (= 3.1.4)
   coderay (= 1.0.9)
   coffee-rails (~> 4.0.0)
-  factory_girl_rails (~> 4.2.1)
   haml-rails
   jquery-rails
   pg
