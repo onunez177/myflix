@@ -30,4 +30,6 @@ gem 'jquery-rails'
 group :test, :development do
   gem 'rspec-rails'
   gem "shoulda-matchers", "~> 2.3.0"
+  gem 'fabrication'
+  gem 'faker'
 end
