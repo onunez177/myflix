@@ -20,8 +20,22 @@ describe UsersController do
       end
     end
     context "with invalid input" do
-      it "does not create the user"
-      it "renders the :new template"
+
+      before do
+        post :create, user: {full_name: 'Bob', email: 'email here', password: ''}
+      end
+
+      it "does not create the user" do        
+        expect(User.first).to eq(nil)
+      end
+       
+      it "renders the :new template" do
+        expect(response).to render_template :new
+      end
+      it "sets the @user variable" do
+        expect(assigns(:user)).to be_instance_of(User)
+      end
+
     end 
   end
 end
