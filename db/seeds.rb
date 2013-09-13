@@ -14,7 +14,7 @@ Video.create(name: "Video Game Hangover #71", description: "Besides pretty graph
              poster_url: "vgh71_large", small_cover_url: "vgh71")
 
 Video.create(name: "Mass Effect 3", description: "The final chapter in the Mass Effect Saga.", poster_url: "masseffect_large", small_cover_url: "masseffect_small")
-Video.create(name: "Transformers: The Movie", description: "Autobots vs Decepticons! The greatest combination of 80s robot action, ever!", poster_url: "transformers_small", small_cover_url: "transformers_large")
+Video.create(name: "Transformers: The Movie", description: "Autobots vs Decepticons! The greatest combination of 80s robot action, ever!", poster_url: "transformers_large", small_cover_url: "transformers_small")
 Video.create(name: "Breaking Bad", description: "The greatest show ever made.", poster_url: "breaking_bad_large", small_cover_url: "breaking_bad_small")
 Video.create(name: "Batman: Mask of the Phantasm", description: "Best Batman movie ever made.", poster_url: "batman_large", small_cover_url: "batman_small")
 

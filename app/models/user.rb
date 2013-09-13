@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :reviews
+  
   has_secure_password validations: false # turning off bcrypt ruby validations and let us set our own validations
 
   validates :full_name, presence: true

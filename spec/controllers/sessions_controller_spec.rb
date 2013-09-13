@@ -1,3 +1,6 @@
+# TODO
+# DRY up code with before blocks
+
 require 'spec_helper'
 
   describe SessionsController do
