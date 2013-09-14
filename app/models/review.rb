@@ -7,4 +7,10 @@ class Review < ActiveRecord::Base
   validates :body, presence: true, 
             length: { minimum: 10 } # no garbage one word reviews
   validates :rating, presence: true
+
+
+def self.avg_rating
+  average('rating')
+end
+  
 end

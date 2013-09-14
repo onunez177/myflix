@@ -6,7 +6,10 @@
       .video_info.span3
         %header
           %h3= @video.name
-          %span Rating: 4.5/5.0
+          - if @video.reviews.any?
+            %span Rating: #{@video.reviews.avg_rating}/5.0
+          - else
+            %span No user ratings for this movie.
         %p= @video.description  
         .actions
           %a.btn.btn-primary(href="") Watch Now
