@@ -1,4 +1,5 @@
 class Video < ActiveRecord::Base
+  has_many :reviews, order: "created_at DESC" # hard code the order of the reviews to display newest first
   has_many :video_genres
   has_many :genres, through: :video_genres
 
