@@ -7,7 +7,7 @@
         %header
           %h3= @video.name
           - if @video.reviews.any?
-            %span Rating: #{@video.reviews.avg_rating}/5.0
+            %span Average Rating: #{@video.reviews.avg_rating}/5.0
           - else
             %span No user ratings for this movie.
         %p= @video.description  
@@ -37,5 +37,7 @@
                   .span2
                     %span Rating: #{review.rating} / 5
                     %p by <a href="">#{review.creator.full_name}</a>
+                    %p 
+                      %em #{timestamp(review.created_at)}  
                   .span8
                     %p= review.body

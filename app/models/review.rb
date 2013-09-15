@@ -10,7 +10,7 @@ class Review < ActiveRecord::Base
 
 
 def self.avg_rating
-  average('rating')
+  average('rating').round(1) # Active Record will return the average value of this column with 1 decimal pt
 end
   
 end
