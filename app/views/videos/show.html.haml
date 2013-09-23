@@ -18,7 +18,7 @@
 %section.reviews.container
   .row
     .span10.offset1
-      = form_for [@video, Review.new] do |f|
+      = bootstrap_form_for [@video, Review.new] do |f| 
         %fieldset
           %label Rate this video
           = f.select :rating, options_for_select([5,4,3,2,1].map { |number| [pluralize(number, "Star")]})
@@ -27,7 +27,7 @@
         %fieldset.actions.clearfix
           %input(type="submit" value="Submit" class="btn")
           = link_to "Cancel", @video
-        -unless @reviews.empty?
+        -if @reviews.any?
           %header
             %h3 User Reviews (#{@reviews.count})
           %ul

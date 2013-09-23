@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
 
   def create
-    @video = Video.find_by(params[:video_id])
+    @video = Video.find(params[:video_id])
     review = Review.new(review_params)
     review.video = @video  
     review.creator = current_user
