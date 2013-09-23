@@ -12,6 +12,8 @@ Myflix::Application.routes.draw do
   resources :users, only: [:create] 
   resources :sessions, only: [:create]
   
+  get 'my_queue', to: 'queued_videos#index'
+  
   get 'ui(/:action)', controller: 'ui'
   get '/register', to: 'users#new'
   

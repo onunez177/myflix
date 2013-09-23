@@ -15,5 +15,5 @@ class Review < ActiveRecord::Base
 end
 
 ## TODO
-## Add an error message in the video show view template
-## when a review cannot be saved.
+## Add an error message in the video show view template when a review cannot be saved.
+## Add a validation to ensure a user can only review a movie once.

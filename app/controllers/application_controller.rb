@@ -13,8 +13,8 @@ class ApplicationController < ActionController::Base
   
   def require_user
     unless logged_in?
-    flash[:notice] = "Restricted to registered users only, please register."
-    redirect_to register_path
+    flash[:notice] = "Restricted to registered users only, please login."
+    redirect_to login_path
     end
   end
 
