@@ -13,7 +13,8 @@
         %p= @video.description  
         .actions
           %a.btn.btn-primary(href="") Watch Now
-          %a.btn(href="") + My Queue
+          =link_to "+ My Queue", queued_videos_path(video_id: @video), :method => :post
+          %a.btn(type="post" value="Sign in" class="btn") +My Queue
 
 %section.reviews.container
   .row

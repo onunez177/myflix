@@ -3,6 +3,6 @@ class Genre < ActiveRecord::Base
   has_many :videos, through: :video_genres
 
   def recent_videos 
-    videos.order("created_at DESC").limit(6) # limiting it to 7
+    videos.order("created_at DESC").limit(6) # limiting it to 6
   end
 end

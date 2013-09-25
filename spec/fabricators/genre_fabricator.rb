@@ -1,0 +1,2 @@
+Fabricator(:genre) do
+end

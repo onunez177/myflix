@@ -6,7 +6,7 @@ class QueuedVideo < ActiveRecord::Base
     video.name
   end
   
-  def video_genre
+  def genre_name # this is a better name for the method
     video.genres.first.name
   end
 

@@ -11,7 +11,8 @@ Myflix::Application.routes.draw do
   resources :genres, only: [:show]
   resources :users, only: [:create] 
   resources :sessions, only: [:create]
-  
+  resources :queued_videos, only: [:create] #will need to add update for updating queue and destroy for deleting queue item
+ 
   get 'my_queue', to: 'queued_videos#index'
   
   get 'ui(/:action)', controller: 'ui'

@@ -25,7 +25,7 @@
                 %td
                   = queued_video.rating
                 %td
-                  = link_to queued_video.video_genre, genre_path(queued_video)
+                  = link_to queued_video.genre_name, genre_path(queued_video)
                 %td
                   = link_to "", method: :post do
                     %i.icon-remove
