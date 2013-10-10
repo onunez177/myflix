@@ -1,6 +1,8 @@
 class QueuedVideo < ActiveRecord::Base
   belongs_to :user
   belongs_to :video
+  
+  default_scope { order('queue_position ASC') } # hardcode the order to list the items by queue position
 
   def video_name
     video.name

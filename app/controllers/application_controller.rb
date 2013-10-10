@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :in_queue?, :queue_position
   
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -17,4 +17,13 @@ class ApplicationController < ActionController::Base
     redirect_to login_path
     end
   end
+
+  def in_queue? # this method allows us to modify the "+ My Queue" button in the video show page "+ My Queue" will not display if already in queue
+    !!QueuedVideo.find_by(user_id: current_user.id, video_id: @video.id)
+  end
+
+  def queue_position
+    position = QueuedVideo.find_by(user_id: current_user.id, video_id: @video.id)
+    position.queue_position
+  end 
 end
