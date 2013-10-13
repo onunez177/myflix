@@ -3,6 +3,7 @@ require 'spec_helper'
 describe QueuedVideo do
   it { should belong_to(:user) }
   it { should belong_to(:video) }
+  it { should validate_numericality_of(:queue_position).only_integer }
   
   describe "video_name" do   
     it "returns the name of the associated video" do
@@ -30,13 +31,6 @@ describe QueuedVideo do
       queued_video = Fabricate(:queued_video, video: video, user: user)
       user.reviews << review
       expect(queued_video.rating).to eq(2)
-    end
-    
-    it "returns 'Not yet yated', when a user has not rated a movie" do
-      user = Fabricate(:user)
-      video = Fabricate(:video) 
-      queued_video = Fabricate(:queued_video, video: video, user: user)
-      expect(queued_video.rating).to eq("Not yet rated")
     end
   end
 end
