@@ -15,4 +15,11 @@ describe QueuedVideosController do
       expect(response).to redirect_to login_path
     end
   end 	
+
+  describe "POST create" do
+  end
+  
+  describe "DELETE update" do
+  end
+
 end
