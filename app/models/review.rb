@@ -9,8 +9,11 @@ class Review < ActiveRecord::Base
   validates :rating, presence: true
 
 
-def self.avg_rating
-  average('rating').round(1) # Active Record will return the average value of this column with 1 decimal pt
+  def self.avg_rating
+    average('rating').round(1) # Active Record will return the average value of this column with 1 decimal pt
+  end
 end
-  
-end
+
+## TODO
+## Add an error message in the video show view template when a review cannot be saved.
+## Add a validation to ensure a user can only review a movie once.

@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
-    redirect_to videos_path if logged_in? # videos_path is 
+    redirect_to videos_path if logged_in? # videos_path is current home page for logged in users.
   end
   
   def create

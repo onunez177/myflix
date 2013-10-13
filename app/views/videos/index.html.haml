@@ -1,6 +1,6 @@
 - @genres.each do |genre|
   %header
-    %h2= link_to genre.name, genre_path(genre)
+    %h1= link_to genre.name, genre_path(genre)
   .videos.row
     - genre.recent_videos.each do |video|
       .video.span2

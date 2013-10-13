@@ -1,0 +1,33 @@
+%section.my_queue.container
+  .row
+    .span10.offset1
+      %article
+        %header
+          %h2 My Queue
+        = form_tag update_queue_path do
+          %table.table
+            %thead
+              %tr
+                %th(width="10%") List Order
+                %th(width="30%") Video Title
+                %th(width="10%") Play
+                %th(width="20%") Rating
+                %th(width="15%") Genre
+                %th(width="15%") Remove
+            %tbody
+              - @queued_videos.each do |queued_video|  
+                %tr
+                  = hidden_field_tag "queued_videos[][id]", queued_video.id
+                  %td= text_field_tag "queued_videos[][position]", queued_video.queue_position
+                  %td
+                    = link_to queued_video.video_name, video_path(queued_video.video.id)
+                  %td
+                    = button_to "Play", nil, class: "btn"
+                  %td 
+                    = queued_video.rating
+                  %td 
+                    = link_to queued_video.genre_name, genre_path(queued_video.video.genres.first.id) # this is messy, need to refactor
+                  %td
+                    = link_to queued_video_path(queued_video.video.id), method: :delete do
+                      %i.icon-remove
+        = submit_tag "Update Instant Queue", method: :post, class: "btn"
