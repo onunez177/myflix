@@ -19,7 +19,6 @@
                 %tr
                   = hidden_field_tag "queued_videos[][id]", queued_video.id
                   %td= text_field_tag "queued_videos[][position]", queued_video.queue_position
-                  //%input(type="text" value="#{queued_video.queue_position}")
                   %td
                     = link_to queued_video.video_name, video_path(queued_video.video.id)
                   %td
@@ -29,6 +28,6 @@
                   %td 
                     = link_to queued_video.genre_name, genre_path(queued_video.video.genres.first.id) # this is messy, need to refactor
                   %td
-                    = link_to queued_video_path(queued_video), method: :delete do
+                    = link_to queued_video_path(queued_video.video.id), method: :delete do
                       %i.icon-remove
         = submit_tag "Update Instant Queue", method: :post, class: "btn"

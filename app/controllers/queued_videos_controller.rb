@@ -16,14 +16,14 @@ class QueuedVideosController < ApplicationController
       redirect_to :back
     else
       QueuedVideo.create(user_id: current_user.id, video_id: video.id, queue_position: position)
-      flash[:notice] = "Added video to queue"
       redirect_to :back
     end
   end
 
   def destroy
-    queued_video = @queued_videos.find_by(user_id: current_user.id, queue_position: params[:id])
+    queued_video = @queued_videos.find_by(user_id: current_user.id, video_id: params[:id]) 
     queued_video.destroy
+    current_user.normalize_queue
     redirect_to my_queue_path
   end
 
@@ -36,15 +36,12 @@ class QueuedVideosController < ApplicationController
       update.queue_position = queue['position']
       update.save
     end
+    current_user.normalize_queue
     redirect_to my_queue_path
   end
 
   private
-  def set_queue #this will set the queue to the current users' queue
+  def set_queue # this will set the queue to the current users' queue
     @queued_videos = current_user.queued_videos
-  end
-
-  def set_queue_order
-    
   end
 end

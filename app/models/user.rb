@@ -10,4 +10,10 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, on: :create, length: {minimum: 5}
     
+  def normalize_queue 
+    queued_videos.each_with_index do |queue_item, index| # the each with index method replaces the need for a counter/index within the loop
+      queue_item.update_attributes(queue_position: index+1) # update_attributes method
+    end
+  end
+
 end

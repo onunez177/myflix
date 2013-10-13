@@ -13,7 +13,7 @@
         %p= @video.description  
         .actions
           %a.btn.btn-primary(href="") Watch Now
-          -if in_queue?
+          -if in_queue? # helper method in app controller checks to see if the video is the queue and will diplay correct button accordingly
             %br/
             %br/
             =link_to "Already in Queue (Position: #{queue_position})", my_queue_path, class: "btn btn-success"
