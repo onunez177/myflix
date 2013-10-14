@@ -29,7 +29,7 @@ class QueuedVideosController < ApplicationController
   def update
     begin
       update_queue  
-    rescue ActiveRecord::RecordInvalid
+    rescue ActiveRecord::RecordInvalid # if the user enters non integer values for the position we will roll back changes and flash error
        flash[:error] = "Invalid position numbers."
        redirect_to my_queue_path
        return
@@ -49,7 +49,18 @@ class QueuedVideosController < ApplicationController
       params[:queued_videos].each do |new_queue|
         queued_video = @queued_videos.find(new_queue["id"])  
         queued_video.update_attributes!(queue_position: new_queue["position"])
+        update_rating(queued_video, new_queue) if new_queue['rating'] != "" 
       end
     end   
+  end
+
+  def update_rating(queued_video, new_queue)
+    if queued_video.video.reviews.any?
+      review = Review.find_by(user_id: current_user.id, video_id: queued_video.video.id)
+      review.update_attributes!(rating: new_queue['rating'])
+    else
+      Review.create(rating: new_queue['rating'], video_id: queued_video.video.id, 
+                    user_id: current_user.id, body: "I rate this movie a solid #{new_queue['rating']}!")
+    end
   end
 end
