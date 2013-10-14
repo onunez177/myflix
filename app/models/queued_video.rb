@@ -2,6 +2,8 @@ class QueuedVideo < ActiveRecord::Base
   belongs_to :user
   belongs_to :video
   
+  validates_numericality_of :queue_position, only_integer: true  
+
   default_scope { order('queue_position ASC') } # hardcode the order to list the items by queue position
 
   def video_name
@@ -14,10 +16,7 @@ class QueuedVideo < ActiveRecord::Base
 
   def rating
     review = Review.where(user_id: user.id, video_id: video.id).first
-    if review # exists / isn't nil
-      review.rating # return the rating of the review
-    else
-      "Not yet rated"
-    end
+
+    review.rating if review #exists / isn't nil
   end
 end
