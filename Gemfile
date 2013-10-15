@@ -32,4 +32,5 @@ group :test, :development do
   gem "shoulda-matchers", "~> 2.3.0"
   gem 'fabrication'
   gem 'faker'
+  gem 'capybara'
 end
