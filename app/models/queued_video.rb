@@ -2,7 +2,7 @@ class QueuedVideo < ActiveRecord::Base
   belongs_to :user
   belongs_to :video
   
-  validates_numericality_of :queue_position, only_integer: true  
+  validates_numericality_of :queue_position, only_integer: true #if the user tries to re-order with non-integer the value throws an exception
 
   default_scope { order('queue_position ASC') } # hardcode the order to list the items by queue position
 

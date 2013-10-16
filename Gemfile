@@ -33,4 +33,5 @@ group :test, :development do
   gem 'fabrication'
   gem 'faker'
   gem 'capybara'
+  gem 'launchy'
 end
