@@ -1,14 +1,12 @@
 require 'spec_helper'
 
 feature 'User signs in' do
-  background do
-    User.create(full_name: "Bob Dole", password: "password", email: "test@email.com")
-  end
-  scenario "with existing username" do
+  scenario "with valid username and password" do
+    bob = Fabricate(:user)
     visit login_path
-    fill_in "email", with: "test@email.com"
-    fill_in "password", with: "password"
+    fill_in "email", with: bob.email
+    fill_in "password", with: bob.password
     click_button "Sign in"
-    page.should have_content "welcome Bob"
+    page.should have_content "welcome #{bob.full_name}"
   end
 end
