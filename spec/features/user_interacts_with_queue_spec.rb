@@ -21,10 +21,10 @@ feature "User signs in and interacts with the queue" do
     transformers.genres << comedy
     
     sign_in(simon)
-       
+    
     find("a[href='/videos/#{futurama.id}']").click
     expect(page).to have_content(futurama.name)
-    end
+  end
   
 	
 end
