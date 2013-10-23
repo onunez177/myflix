@@ -10,7 +10,7 @@ feature "User signs in and interacts with the queue" do
 	  expect(page).to have_content "Email Address"
   end
   
-  scenario "user signs in and then adds a video to their queue" do
+  scenario "user signs in, adds videos to their queue, and re-orders the queue" do # this needs to be broken into multiple tests
     comedy = Fabricate(:genre)
     futurama = Fabricate(:video, name: "Futurama")  
     family_guy = Fabricate(:video, name: "Family Guy")
