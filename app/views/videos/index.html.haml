@@ -4,4 +4,4 @@
   .videos.row
     - genre.recent_videos.each do |video|
       .video.span2
-        = link_to image_tag("/tmp/#{video.small_cover_url}.jpg"), video_path(video)
+        = link_to image_tag("/tmp/#{video.small_cover_url}.jpg"), video_path(video), {:id => "video_#{video.id}"} # dynamic id based on video id

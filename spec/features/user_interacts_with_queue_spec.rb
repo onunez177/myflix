@@ -4,7 +4,7 @@ require 'pry'
 feature "User signs in and interacts with the queue" do
   given (:simon) { Fabricate(:user) }
 
-  scenario "user visits front page and then logs in" do
+  scenario "user visits front page and goes to the sign in page" do
 	  visit root_path
 	  click_link('Sign In')
 	  expect(page).to have_content "Email Address"
@@ -22,6 +22,7 @@ feature "User signs in and interacts with the queue" do
     
     sign_in(simon)
     
+    click_on 
     find("a[href='/videos/#{futurama.id}']").click
     expect(page).to have_content(futurama.name)
   end
