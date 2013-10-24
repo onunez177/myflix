@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   has_many :queued_videos
   has_many :videos, through: :queued_videos
   
+  has_many :relationships
+  has_many :following, through: :relationships # this will allow us to do user.following to pull all the people they are following
+  
   has_secure_password validations: false # turning off bcrypt ruby validations and let us set our own validations
 
   validates :full_name, presence: true
