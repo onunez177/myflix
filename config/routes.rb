@@ -9,7 +9,7 @@ Myflix::Application.routes.draw do
   end
   
   resources :genres, only: [:show]
-  resources :users, only: [:create] 
+  resources :users, only: [:create, :show] 
   resources :sessions, only: [:create]
   resources :queued_videos, only: [:create, :destroy] 
  
