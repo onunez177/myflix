@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   helper_method :current_user, :logged_in?, :in_queue?, :queue_position, :user_has_queue?, :user_reviewed?
+  
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end

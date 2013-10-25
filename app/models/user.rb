@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   
   has_many :relationships
   has_many :following, through: :relationships # this will allow us to do user.following to pull all the people they are following
+  has_many :followers, foreign_key: :user_id, class_name: "Relationship" # we can now do user.followers 
   
   has_secure_password validations: false # turning off bcrypt ruby validations and let us set our own validations
 

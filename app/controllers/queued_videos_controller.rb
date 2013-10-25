@@ -1,6 +1,6 @@
 class QueuedVideosController < ApplicationController
   before_action :require_user
-  before_action :set_queue#, only: [:index, :create, :destroy, :update]
+  before_action :set_queue 
   
   def index
   end
