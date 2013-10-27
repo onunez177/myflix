@@ -1,3 +1,8 @@
+TODO list:
+
+1) Feature/Integration Spec for social networking featues
+2) Logic method to make follow button appear/disappear on the people page
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create

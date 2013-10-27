@@ -22,7 +22,7 @@ class QueuedVideosController < ApplicationController
   def destroy
     queued_video = @queued_videos.find_by(user_id: current_user.id, video_id: params[:id]) 
     queued_video.destroy
-    current_user.normalize_queue
+    current_user.normalize_queue # method on the user model
     redirect_to my_queue_path
   end
 

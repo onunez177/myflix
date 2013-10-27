@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'pry'
+
 describe RelationshipsController do
   before do
     paul = Fabricate(:user)
@@ -54,6 +55,26 @@ describe RelationshipsController do
        
       delete :destroy, id: simon
       expect(bombi.following.count).to eq(1)
+    end
+  end
+
+  describe "POST create" do 
+    it "creates a new following relationship between users" do 
+      simon = Fabricate(:user)
+      
+      post :create, id: simon
+      expect(current_user.following.count).to eq(1)
+    end
+    it "redirects to the people page" do
+      simon = Fabricate(:user)
+      
+      post :create, id: simon
+      expect(response).to redirect_to people_path
+    end
+    
+    it "does not allow a user to follow themselves" do
+      post :create, id: current_user
+      expect(current_user.following.count).to eq(0)
     end
   end
 end
