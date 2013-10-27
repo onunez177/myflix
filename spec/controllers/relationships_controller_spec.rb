@@ -29,6 +29,9 @@ describe RelationshipsController do
   end
 
   describe "DELETE destroy" do
+    it_behaves_like "require_user" do
+      let(:action) { delete :destroy, id: 4 }
+    end
     it "deletes the relationship if the current user is the follower"
     it "redirects to the people page"
     it "does not delete the relationship if the current user is not the follower"
