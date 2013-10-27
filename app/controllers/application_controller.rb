@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user, :logged_in?, :in_queue?, :queue_position, :user_has_queue?
+  helper_method :current_user, :logged_in?, :in_queue?, :queue_position, :user_has_queue?, :user_reviewed?
+  
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
@@ -29,4 +30,8 @@ class ApplicationController < ActionController::Base
     position = QueuedVideo.find_by(user_id: current_user.id, video_id: @video.id)
     position.queue_position
   end 
+
+  def user_reviewed?
+    !!Review.find_by(user_id: current_user.id, video_id: @video.id)
+  end
 end

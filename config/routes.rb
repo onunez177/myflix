@@ -9,10 +9,13 @@ Myflix::Application.routes.draw do
   end
   
   resources :genres, only: [:show]
-  resources :users, only: [:create] 
+  resources :users, only: [:create, :show] 
   resources :sessions, only: [:create]
   resources :queued_videos, only: [:create, :destroy] 
- 
+  
+  resources :relationships, only: [:create, :destroy]
+  get 'people', to: 'relationships#index'
+  
   get 'my_queue', to: 'queued_videos#index'
   post 'update_queue', to: 'queued_videos#update'
 

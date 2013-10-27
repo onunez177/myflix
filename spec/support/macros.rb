@@ -10,3 +10,16 @@ def add_video_to_queue(video)
   click_on("video_#{video.id}") #click the video link, then we're routed to the video show page
   click_on("Add to My Queue") #add video to the queue
 end
+
+def set_current_user(a_user=nil)
+  user = a_user || Fabricate(:user)
+  session[:user_id] = user.id
+end
+
+def current_user
+  User.find(session[:user_id])
+end
+
+def logout_user
+  session[:user_id] = nil
+end

@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Thanks for your review #{current_user.full_name}!"
       redirect_to video_path(@video)
     else
+      flash[:notice] = "There was an error saving your review."
       render 'videos/show'
     end
 	end
