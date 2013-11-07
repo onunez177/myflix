@@ -17,5 +17,5 @@
           %td.extra-padding= user.queued_videos.count
           %td.extra-padding= user.followers.count
           %td.extra-padding
-            = link_to relationship_path(user), :method => :delete do
+            = link_to relationship_path(user), {:id => "del_#{user.full_name}", :method => :delete} do
               %i.icon-remove
