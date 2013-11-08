@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:notice] = "You've successfully registered, please log in."
+      UserMailer.notify_new_user(@user).deliver
       redirect_to login_path
     else 
       render :new
