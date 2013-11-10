@@ -16,6 +16,9 @@ Myflix::Application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   get 'people', to: 'relationships#index'
   
+  get 'password_reset' , to: 'password_resets#new'
+  resources :password_resets, only: [:create]
+ 
   get 'my_queue', to: 'queued_videos#index'
   post 'update_queue', to: 'queued_videos#update'
 
