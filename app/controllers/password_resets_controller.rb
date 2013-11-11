@@ -11,4 +11,9 @@ class PasswordResetsController < ApplicationController
 	    redirect_to password_reset_path
     end
   end
+
+  def edit
+    @user = User.find_by_token!(params[:id]) # using ! format to generate a 404 error if user not found
+  end
+
 end
