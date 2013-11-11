@@ -8,7 +8,7 @@ class PasswordResetsController < ApplicationController
     else
 	    flash[:error] = params[:email].blank? ? "Email cannot be blank, please try again."
 	    : "Invalid email address please try again"
-	    redirect_to password_reset_path
+	    redirect_to new_password_reset_path
     end
   end
 
@@ -16,4 +16,7 @@ class PasswordResetsController < ApplicationController
     @user = User.find_by_token!(params[:id]) # using ! format to generate a 404 error if user not found
   end
 
+  def update
+    binding.pry
+  end
 end
