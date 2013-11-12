@@ -6,7 +6,7 @@ describe PasswordResetsController do
     context "with invalid input" do
       it "redirects back to the password reset page if email is blank" do
         post :create, email: ''
-        expect(response).to redirect_to password_reset_path
+        expect(response).to redirect_to new_password_reset_path
       end
       it "sets an error message if user doesn't exist" do 
         post :create, email: 'test@test.com'

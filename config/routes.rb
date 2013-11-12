@@ -17,10 +17,8 @@ Myflix::Application.routes.draw do
   get 'people', to: 'relationships#index'
   
   resources :password_resets, only: [:new, :create, :edit, :update]
-  #get 'password_reset' , to: 'password_resets#new'
-  #resources :password_resets, only: [:create, :edit]
   get 'confirm_password_reset', to: 'password_resets#confirm' 
-  #post 'update_password', to: 'password_resets#update'
+  
 
   get 'my_queue', to: 'queued_videos#index'
   post 'update_queue', to: 'queued_videos#update'

@@ -17,6 +17,5 @@ class PasswordResetsController < ApplicationController
   end
 
   def update
-    binding.pry
   end
 end
