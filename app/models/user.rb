@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :queued_videos
   has_many :videos, through: :queued_videos
   
-  has_many :relationships
+  has_many :relationships # this class is used to setup our social networking feature
   has_many :following, through: :relationships # this will allow us to do user.following to pull all the people they are following
   has_many :followers, foreign_key: :following_id, class_name: "Relationship" # we can now do user.followers 
   
