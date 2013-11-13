@@ -27,7 +27,7 @@ describe QueuedVideo do
     it "returns the rating of the video" do
       user = Fabricate(:user)
       video = Fabricate(:video) 
-      review = Fabricate(:review, rating: "2", video: video)
+      review = Fabricate(:review, rating: "2", video: video, creator: user)
       queued_video = Fabricate(:queued_video, video: video, user: user)
       user.reviews << review
       expect(queued_video.rating).to eq(2)

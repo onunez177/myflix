@@ -12,10 +12,10 @@
       - @following.each do |user|
         %tr
           %td
-            %img(src="http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest('temp@gmail.com'.downcase)}?s=40")
+            %img(src="http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email.downcase)}?s=40")
             = link_to "#{user.full_name}", user_path(user)
           %td.extra-padding= user.queued_videos.count
           %td.extra-padding= user.followers.count
           %td.extra-padding
-            = link_to relationship_path(user), :method => :delete do
+            = link_to relationship_path(user), {:id => "del_#{user.full_name}", :method => :delete} do
               %i.icon-remove

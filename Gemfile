@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.0'
 gem 'haml-rails'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '2.3.2.2'
 gem 'bootstrap_form'
 
 
@@ -18,6 +18,7 @@ group :development do
   gem 'sqlite3'
   gem 'pry'
   gem 'pry-nav'
+  gem 'letter_opener'
 end
 
 group :production do
