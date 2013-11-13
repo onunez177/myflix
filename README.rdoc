@@ -2,6 +2,6 @@
 
 1. Feature/Integration Spec for social networking featues - completed
 2. Logic method to make follow button appear/disappear on the people page
-3. Spec for USER model
+3. Spec for USER model - completed
 4. Need to refactor flash messages for social networking feature.
 
