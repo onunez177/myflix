@@ -13,9 +13,27 @@ class PasswordResetsController < ApplicationController
   end
 
   def edit
-    @user = User.find_by_token!(params[:id]) # using ! format to generate a 404 error if user not found
+    @user = User.find_by_token(params[:id]) 
+    if @user 
+      render :edit 
+    else
+      flash[:error] = "Sorry, but that link has expired."
+      redirect_to new_password_reset_path
+    end
   end
 
   def update
+    @user = User.find_by_token(params[:id])
+    @user.password = params[:password]
+       
+    if @user.password.blank? || @user.password.length < 5 # need to check if the password is valid first!
+      flash[:error] = "Password too short, must be minimum 5 characters." # password being too short is the only possible fail state here
+      render :edit       
+    else
+      flash[:notice] = "Successfully updated password. Thank you, #{@user.full_name}."
+      @user.generate_token # generate a new token for user
+      @user.save # and save the new password/token info
+      redirect_to login_path
+    end
   end
 end
