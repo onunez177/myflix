@@ -2,9 +2,9 @@ class UsersController < ApplicationController
    
   def new
     @invite = Invite.find_by_token(params[:invite_id])
-    session[:invite_id] = @invite.id
-    
+        
     if @invite
+      session[:invite_id] = @invite.id
       @user = User.new(email: @invite.new_user_email)
     else
       @user = User.new
