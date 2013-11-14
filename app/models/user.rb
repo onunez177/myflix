@@ -23,5 +23,6 @@ class User < ActiveRecord::Base
       queue_item.update_attributes(queue_position: index+1) # update_attributes method
     end
   end
-
+  
+  
 end
