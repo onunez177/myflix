@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
-  include Tokenable # ../models/concerns
+  include Tokenable #../models/concerns
   
   has_many :reviews
+  has_many :invites
   
   has_many :queued_videos
   has_many :videos, through: :queued_videos
