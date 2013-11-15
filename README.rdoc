@@ -4,4 +4,4 @@
 2. Logic method to make follow button appear/disappear on the people page
 3. Spec for USER model - completed
 4. Need to refactor flash messages for social networking feature.
-
+5. Need to improve test suites to check more aggressively for fail states. ie. invites controller.
