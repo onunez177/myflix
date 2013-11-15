@@ -12,10 +12,10 @@ class QueuedVideosController < ApplicationController
       
     if in_queue.any? # this code might be redundant, since in the view the button changes if the video is in the queue
       flash[:error] = "That video is already in your queue."
-      redirect_to :back
+      redirect_to video_path(video)
     else
       QueuedVideo.create(user_id: current_user.id, video_id: video.id, queue_position: position)
-      redirect_to :back # re-direct back to video page, not the queue page
+      redirect_to video_path(video) # re-direct back to video page, not the queue page
     end
   end
 

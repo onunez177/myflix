@@ -87,8 +87,5 @@ describe PasswordResetsController do
         expect(old_token).not_to eq(new_token)
       end
     end
-
   end
-
-
 end

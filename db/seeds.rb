@@ -18,8 +18,23 @@ Video.create(name: "Transformers: The Movie", description: "Autobots vs Deceptic
 Video.create(name: "Breaking Bad", description: "The greatest show ever made.", poster_url: "breaking_bad_large", small_cover_url: "breaking_bad_small")
 Video.create(name: "Batman: Mask of the Phantasm", description: "Best Batman movie ever made.", poster_url: "batman_large", small_cover_url: "batman_small")
 
-Genre.create(name: "Comedy")
-Genre.create(name: "Drama")
-Genre.create(name: "Action")
+comedy = Genre.create(name: "Comedy")
+drama = Genre.create(name: "Drama")
+action = Genre.create(name: "Action")
 
+for counter in (1..4) 
+  Video.find(counter).genres << comedy
+end
 
+for counter in (3..6)
+  Video.find(counter).genres << drama
+end
+
+for counter in (5..8)
+  Video.find(counter).genres << action
+end
+
+User.create(full_name: "Paul Sandhu", email: "spaulsandhu@gmail.com", password: "password")
+User.create(full_name: "Simon Sandhu", email: "simon@test.com", password: "password")
+User.create(full_name: "Bomba Sandhu", email: "bomba@test.com", password: "password")
+User.create(full_name: "Luna Sandhu", email: "luna@test.com", password: "password")

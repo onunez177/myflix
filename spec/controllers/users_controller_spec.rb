@@ -6,19 +6,57 @@ describe UsersController do
       get :new
       expect(assigns(:user)).to be_instance_of(User)
     end
+    
+    context "if user is invited to the site" do 
+      it "sets the @invite variable via the invite token" do
+        simon = Fabricate(:user)
+        invite = Invite.create(user: simon, new_user_email: "paul@test.com")
+        get :new, invite_id: invite.token
+        expect(assigns(:invite)).to eq(invite)
+      end
+      it "sets the session invite_id to the id of the inviter" do
+        simon = Fabricate(:user)
+        invite = Invite.create(user: simon, new_user_email: "paul@test.com")
+        get :new, invite_id: invite.token
+        expect(session[:invite_id]).to eq(simon.id)
+      end
+    end
   end
 
   describe "POST create" do
+
     context "with valid input" do
-      before { post :create, user: Fabricate.to_params(:user) }
-      
+          
       it "creates a new user" do
+        post :create, user: Fabricate.to_params(:user)
         expect(User.count).to eq(1)
       end  
       it "redirects to the sign in page" do
+        post :create, user: Fabricate.to_params(:user)
         expect(response).to redirect_to login_path
       end
+    
+     context "with invited user" do
+       it "creates a relationship" do
+         simon = Fabricate(:user)
+         invite = Invite.create(user: simon, new_user_email: "paul@test.com")
+         session[:invite_id] = simon.id
+
+         post :create, user: Fabricate.to_params(:user)
+         expect(simon.following.count).to eq(1)
+        end
+
+        it "sets the session invite_id to nil" do
+          simon = Fabricate(:user)
+          invite = Invite.create(user: simon, new_user_email: "paul@test.com")
+          session[:invite_id] = simon.id
+
+          post :create, user: Fabricate.to_params(:user)
+          expect(session[:invite_id]).to eq(nil)
+        end
+      end
     end
+
     context "with invalid input" do
 
       before do

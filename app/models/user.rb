@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
+  include Tokenable #../models/concerns
+  
   has_many :reviews
+  has_many :invites
   
   has_many :queued_videos
   has_many :videos, through: :queued_videos
@@ -14,16 +17,12 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: {minimum: 5}
   
-  before_create :generate_token
-  
+    
   def normalize_queue 
     queued_videos.each_with_index do |queue_item, index| # the each with index method replaces the need for a counter/index within the loop
       queue_item.update_attributes(queue_position: index+1) # update_attributes method
     end
   end
-
-  def generate_token
-    self.token = SecureRandom.urlsafe_base64
-  end
-
+  
+  
 end

@@ -1,0 +1,9 @@
+!!! 5
+%h1
+  = "Hi there #{@friend_name}!"
+%p
+  = "You've received an invite to join MyFlix from #{@user.full_name}"
+%p
+  %i= "'#{@message}'"
+%p
+  = link_to "Click here to sign up!", new_invite_user_url(@invite.token)
