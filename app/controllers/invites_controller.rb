@@ -6,7 +6,10 @@ before_action :require_user
     if params[:email].blank? || params[:friend_name].blank?
       flash[:error] = "Name or Email cannot be blank, please re-enter."
       render :new
-    else 
+    elsif User.find_by_email(params[:email])
+      flash[:error] = "That person is already registered with MyFlix."  
+      redirect_to new_invite_path
+    else
       invite = Invite.new(user_id: current_user.id, new_user_email: params[:email])
       invite.save
       
