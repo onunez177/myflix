@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131111022001) do
+ActiveRecord::Schema.define(version: 20131113203544) do
 
   create_table "genres", force: true do |t|
     t.string "name"
+  end
+
+  create_table "invites", force: true do |t|
+    t.integer  "user_id"
+    t.string   "new_user_email"
+    t.string   "token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "queued_videos", force: true do |t|

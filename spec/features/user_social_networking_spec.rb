@@ -1,6 +1,4 @@
 require 'spec_helper'
-require 'pry'
-
 
 feature "User interacts with social networking features" do 
   given (:simon) { Fabricate(:user) }
