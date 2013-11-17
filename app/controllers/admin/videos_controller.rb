@@ -9,6 +9,7 @@ class Admin::VideosController < AdminsController
   end
 
 	def create
-	end
+	  binding.pry
+  end
 
 end

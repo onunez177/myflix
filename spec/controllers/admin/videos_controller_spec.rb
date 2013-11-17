@@ -16,9 +16,5 @@ describe Admin::VideosController do
       get :new
       expect(response).to redirect_to root_path
     end
-    
-   
   end
-
-	
 end
