@@ -23,3 +23,8 @@ end
 def logout_user
   session[:user_id] = nil
 end
+
+def set_admin(user=nil)
+  user = Fabricate(:user, admin: true)
+  session[:user_id] = user.id
+end
