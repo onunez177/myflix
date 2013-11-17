@@ -118,9 +118,9 @@ describe QueuedVideosController do
       expect(current_user.queued_videos.first.video).to eq(video2)
     end
     it "normalizes the new queue positions" do   
-      queued_video1 = Fabricate(:queued_video, video: video1, user: current_user)
-      queued_video2 = Fabricate(:queued_video, video: video2, user: current_user)
-      queued_video3 = Fabricate(:queued_video, video: video3, user: current_user) 
+      queued_video1 = Fabricate(:queued_video, video: video1, user: current_user, queue_position: 1)
+      queued_video2 = Fabricate(:queued_video, video: video2, user: current_user, queue_position: 2)
+      queued_video3 = Fabricate(:queued_video, video: video3, user: current_user, queue_position: 3) 
       
       delete :destroy, id: video2    
       expect(queued_video3.reload.queue_position).to eq(2)

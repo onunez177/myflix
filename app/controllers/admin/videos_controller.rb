@@ -9,7 +9,13 @@ class Admin::VideosController < AdminsController
   end
 
 	def create
-	  binding.pry
+	  
   end
 
+
+  private
+  
+  def video_params
+  
+  end
 end

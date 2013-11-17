@@ -17,4 +17,18 @@ describe Admin::VideosController do
       expect(response).to redirect_to root_path
     end
   end
+
+  describe "POST create" do
+    context "with valid input" do
+      it "creates a new video"
+      it "assigns the correct genre to the video"
+      it "redirects to the add new video page"
+      it "sets the flash message"
+    end
+    context "with invalid input" do  
+      it "renders the new template" 
+      it "does not create a new video"
+      it "sets the error message"
+    end
+  end
 end
