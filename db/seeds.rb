@@ -7,38 +7,46 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Video.create(name: "Futurama", 
-             description: "Will Hedonism bot ever find true love? Tune in to find out!", 
+             description: "Will Hedonism bot ever find true love? Will Bender finally kill all humans? Tune in to find out!", 
              poster_url: File.open("public/uploads/futurama_large.jpg"), 
-             small_cover_url: File.open("public/uploads/futurama.jpg"))
+             small_cover_url: File.open("public/uploads/futurama.jpg"),
+             video_url: "https://s3-us-west-2.amazonaws.com/paul-myflix/movies/FuturamaClip.mp4")
 Video.create(name: "Video Game Hangover #47", 
              description: "On this week's show, we're talking about video game endings: the ones that got it right and the ones that missed the mark. Also: Mulchers, hand cramps, vagina monsters, generic white men, and the importance of carrying enough arrows. The end is nigh!",
              poster_url: File.open("public/uploads/vgh47_large.jpg"), 
-             small_cover_url: File.open("public/uploads/vgh47.jpg"))
+             small_cover_url: File.open("public/uploads/vgh47.jpg"),
+             video_url: "https://s3-us-west-2.amazonaws.com/paul-myflix/movies/VGH47Clip.mp4")
 Video.create(name: "Family Guy", 
              description: "Seth McFarlane is totally overrated.", 
              poster_url: File.open("public/uploads/family_guy_large.jpg"), 
-             small_cover_url: File.open("public/uploads/family_guy.jpg"))
+             small_cover_url: File.open("public/uploads/family_guy.jpg"),
+             video_url: "https://s3-us-west-2.amazonaws.com/paul-myflix/movies/FamilyGuyClip.mp4")
 Video.create(name: "Video Game Hangover #71", 
              description: "Besides pretty graphics, what do you want from next gen games? On this week's show, we're hoping for evolution beyond 1080p. We've also got awesome new theme music, talk of the Wii U, and reviews of Double Dragon Neon, Darksiders II and Demons' Score.",
              poster_url: File.open("public/uploads/vgh71_large.jpg"), 
-             small_cover_url: File.open("public/uploads/vgh71.jpg"))
+             small_cover_url: File.open("public/uploads/vgh71.jpg"),
+             video_url: "https://s3-us-west-2.amazonaws.com/paul-myflix/movies/VGH71Clip.mp4")
 
 Video.create(name: "Mass Effect 3", 
              description: "The final chapter in the Mass Effect Saga.", 
              poster_url: File.open("public/uploads/masseffect_large.jpg"), 
-             small_cover_url: File.open("public/uploads/masseffect_small.jpg"))
+             small_cover_url: File.open("public/uploads/masseffect_small.jpg"),
+             video_url: "https://s3-us-west-2.amazonaws.com/paul-myflix/movies/MassEffect3Clip.mp4")
 Video.create(name: "Transformers: The Movie", 
              description: "Autobots vs Decepticons! The greatest combination of 80s robot action, ever!", 
              poster_url: File.open("public/uploads/transformers_large.jpg"), 
-             small_cover_url: File.open("public/uploads/transformers_small.jpg"))
+             small_cover_url: File.open("public/uploads/transformers_small.jpg"),
+             video_url: "https://s3-us-west-2.amazonaws.com/paul-myflix/movies/TransformersClip.mp4")
 Video.create(name: "Breaking Bad", 
              description: "The greatest show ever made.", 
              poster_url: File.open("public/uploads/breaking_bad_large.jpg"), 
-             small_cover_url: File.open("public/uploads/breaking_bad_small.jpg"))
+             small_cover_url: File.open("public/uploads/breaking_bad_small.jpg"),
+             video_url: "https://s3-us-west-2.amazonaws.com/paul-myflix/movies/BreakingBadClip.mp4")
 Video.create(name: "Batman: Mask of the Phantasm", 
              description: "Best Batman movie ever made.", 
              poster_url: File.open("public/uploads/batman_large.jpg"), 
-             small_cover_url: File.open("public/uploads/batman_small.jpg"))
+             small_cover_url: File.open("public/uploads/batman_small.jpg"),
+             video_url: "https://s3-us-west-2.amazonaws.com/paul-myflix/movies/BatmanClip.mp4")
 
 comedy = Genre.create(name: "Comedy")
 drama = Genre.create(name: "Drama")
