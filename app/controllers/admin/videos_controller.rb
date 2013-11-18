@@ -9,10 +9,11 @@ class Admin::VideosController < AdminsController
   end
 
 	def create
-	  @video = Video.new(videos_params)
+	  
+    @video = Video.new(videos_params)
     if @video.save
       @video.genres << Genre.find(params[:genres])  
-      flash[:success] = "Added video #{video.name}!"
+      flash[:success] = "Added video #{@video.name}!"
       redirect_to new_admin_video_path
     else
       flash[:error] = "Error adding video, please check your input."
@@ -24,6 +25,6 @@ class Admin::VideosController < AdminsController
   private
   
   def videos_params
-    params.require(:video).permit(:name, :description)
+    params.require(:video).permit(:name, :description, :poster_url, :small_cover_url)
   end
 end

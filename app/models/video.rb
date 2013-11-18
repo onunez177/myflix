@@ -7,7 +7,9 @@ class Video < ActiveRecord::Base
   has_many :users, through: :queued_videos
   
   validates :name, :description, presence: true
-
+  
+  mount_uploader :poster_url, PosterUrlUploader
+  mount_uploader :small_cover_url, SmallCoverUrlUploader
   
   def self.search_by_name(search_word)
     Video.where("name LIKE ?", "#{search_word}%")  
