@@ -13,8 +13,9 @@
             = label_tag :genres, "Genre"
             = select_tag :genres, options_for_select(Genre.all.map {|genre| [genre.name, genre.id]})
             = f.text_area :description, rows: 4, class: "span4"
-            = f.file_field :poster_url, class: "btn btn-file"
-            = f.file_field :small_cover_url, class: "btn btn-file"
+            = f.file_field :poster_url, class: "btn btn-file", label: "Poster Image"
+            = f.file_field :small_cover_url, class: "btn btn-file", label: "Small Video Image"
+            = f.text_field :video_url, class: "span3", label: "Video URL"
           %fieldset.actions.control-group
             .controls
               %input(type="submit" value="Add Video" class="btn btn-success")

@@ -8,6 +8,8 @@ Myflix::Application.routes.draw do
     resources :reviews, only: [:create]
   end
   
+  post 'play_video', to: 'videos#play'
+
   namespace :admin do
     resources :videos, only: [:index, :create, :new]
   end
