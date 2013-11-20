@@ -13,6 +13,8 @@ gem 'builder', '3.1.4'
 gem 'coderay', '1.0.9'
 gem 'bcrypt-ruby', '= 3.0.1'
 
+gem 'carrierwave'
+
 group :development do
   gem 'sqlite3'
   gem 'pry'

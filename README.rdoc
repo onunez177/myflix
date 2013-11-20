@@ -5,3 +5,4 @@
 3. Spec for USER model - completed
 4. Need to refactor flash messages for social networking feature.
 5. Need to improve test suites to check more aggressively for fail states. ie. invites controller.
+6. Right now, the play video feature is a cheap hack. Need to refactor entire feature, but it works for now.

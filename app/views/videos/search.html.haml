@@ -4,4 +4,4 @@
   %h1= "Your search for '#{params[:search_term]}' returned #{@results.size} #{"movie".pluralize(@results.size)}."
   - @results.each do |result|
     .video.span2
-      = link_to image_tag("/tmp/#{result.small_cover_url}.jpg"), video_path(result)
+      = link_to image_tag("#{result.small_cover_url}"), video_path(result)

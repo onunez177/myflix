@@ -1,0 +1,53 @@
+%article.video
+  .container
+    .row
+      .video_large_cover.span7.offset1
+        %video{:autoplay => "", :controls => "", :height => "375", :width => "665"}
+          %source{:src => "#{@video.video_url}", :type => "video/mp4"}
+            Your browser does not support the video tag.
+      .video_info.span3
+        %header
+          %h3= @video.name
+          - if @video.reviews.any?
+            %span Average Rating: #{@video.reviews.avg_rating}/5.0
+          - else
+            %span No user ratings for this movie.
+        %p= @video.description  
+        .actions
+          -if in_queue? # helper method in app controller checks to see if the video is the queue and will diplay correct button accordingly
+            %br/
+            %br/
+            =link_to "Already in Queue (Position: #{queue_position})", my_queue_path, class: "btn btn-success"
+          -else
+            %br/
+            %br/ 
+            =link_to "Add to My Queue", queued_videos_path(video_id: @video), :method => :post, class: "btn" # queued videos controller #create
+
+%section.reviews.container
+  .row
+    .span10.offset1
+      - unless user_reviewed? # only show the review box if the user has not reviewed the movie (helper method in app controller)
+        = bootstrap_form_for [@video, Review.new] do |f| 
+          %fieldset
+            %label Rate this video
+            = f.select :rating, options_for_video_ratings
+            %label Write Review
+            = f.text_area :body, rows: 6, class: "span6"
+          %fieldset.actions.clearfix
+            %input(type="submit" value="Submit" class="btn")
+            = link_to "Cancel", @video
+        
+      -if @reviews.any?
+        %header
+          %h3 User Reviews (#{@reviews.count})
+        %ul
+          - @reviews.each do |review|
+            %article.review
+              %li.row
+                .span2
+                  %span Rating: #{review.rating} / 5
+                  %p= link_to "by #{review.creator.full_name}", user_path(review.creator)
+                  %p 
+                    %em #{timestamp(review.created_at)}  
+                .span8
+                  %p= review.body
