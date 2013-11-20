@@ -14,6 +14,7 @@ gem 'coderay', '1.0.9'
 gem 'bcrypt-ruby', '= 3.0.1'
 
 gem 'carrierwave'
+gem 'stripe'
 
 group :development do
   gem 'sqlite3'
