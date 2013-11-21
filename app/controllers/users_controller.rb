@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.new(users_params)
       
     if @user.save
-      UserMailer.notify_new_user(@user).deliver
+      UserMailer.delay.notify_new_user(@user)
       charge_card
       create_relationship unless session[:invite_id] == nil
       flash[:notice] = "You've successfully registered, please log in."
