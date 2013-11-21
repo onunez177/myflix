@@ -15,6 +15,7 @@ gem 'bcrypt-ruby', '= 3.0.1'
 
 gem 'carrierwave'
 gem 'stripe'
+gem 'sidekiq'
 
 group :development do
   gem 'sqlite3'
