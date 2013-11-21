@@ -10,4 +10,5 @@
           = f.password_field :password
         %fieldset.actions.control-group
           .controls
-            %input(type="submit" value="Sign Up" class="btn")
+            =form_tag users_path do
+              %script(src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_bjOia1YDfbmh8OeAxkLaDOC5" data-amount="999" data-name="Sign up for MyFlix" data-description="$9.99/month!")

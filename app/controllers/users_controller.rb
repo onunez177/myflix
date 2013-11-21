@@ -14,9 +14,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(users_params)
-    
+      
     if @user.save
       UserMailer.notify_new_user(@user).deliver
+      charge_card
       create_relationship unless session[:invite_id] == nil
       flash[:notice] = "You've successfully registered, please log in."
       redirect_to login_path
@@ -41,4 +42,17 @@ class UsersController < ApplicationController
     invite.user.following << @user
     session[:invite_id] = nil
   end
+  
+  def charge_card # we will run validations using the custom js form, no need for validations here now
+    
+    Stripe.api_key = "sk_test_0GZIa56QpRrqbGHqREQCYYf5" # will need to set this to secret key in production env
+   
+    token = params[:stripeToken]   
+      charge = Stripe::Charge.create(
+        :amount => 999, # amount in cents, again
+        :currency => "usd",
+        :card => token,
+        :description => "#{@user.email}"
+      )
+   end
 end
