@@ -52,7 +52,7 @@ class UsersController < ApplicationController
         :amount => 999, # amount in cents, again
         :currency => "usd",
         :card => token,
-        :description => "#{@user.email}"
+        :description => "#{@user.email} payment to sign up for MyFlix"
       )
    end
 end
