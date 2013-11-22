@@ -13,11 +13,14 @@ gem 'builder', '3.1.4'
 gem 'coderay', '1.0.9'
 gem 'bcrypt-ruby', '= 3.0.1'
 
-gem 'carrierwave'
-gem 'stripe'
-gem 'sidekiq'
+gem 'carrierwave' # allows easy uploading of files
+gem 'stripe' # e-commerce gem
+gem 'sidekiq' # background job gem used setup email workers
 
-gem 'unicorn'
+gem 'unicorn' # production server
+gem 'fog' # to setup access to Amazon S3 
+gem 'unf' # needed for fog gem
+gem 'figaro' # to manage ENV variables
 
 group :development do
   gem 'sqlite3'
