@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   
   def charge_card # we will run validations using the custom js form, no need for validations here now
     
-    Stripe.api_key = "sk_test_0GZIa56QpRrqbGHqREQCYYf5" # will need to set this to secret key in production env
+    Stripe.api_key = ENV["STRIPE_SECRET_KEY"] # will need to set this to secret key in production env
    
     token = params[:stripeToken]   
       charge = Stripe::Charge.create(

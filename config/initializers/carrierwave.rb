@@ -8,5 +8,6 @@ CarrierWave.configure do |config|
     }
     config.fog_directory  = 'paul-myflix/images'                     # required
   else
-  config.storage = :file 
+    config.storage = :file 
+  end
 end

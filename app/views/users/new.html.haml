@@ -1,5 +1,5 @@
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<script type="text/javascript">Stripe.setPublishableKey('pk_test_bjOia1YDfbmh8OeAxkLaDOC5');</script>
+<script type="text/javascript">Stripe.setPublishableKey("#{ENV['STRIPE_PUBLIC_KEY']}");</script>
 
 = javascript_include_tag 'payment'
 
