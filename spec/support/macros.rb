@@ -28,3 +28,14 @@ def set_admin(user=nil)
   user = Fabricate(:user, admin: true)
   session[:user_id] = user.id
 end
+
+def stripe_token
+  Stripe::Token.create(
+      :card => {
+      :number => "4242424242424242",
+      :exp_month => 11,
+      :exp_year => 2014,
+      :cvc => "314"
+      },
+  )
+end

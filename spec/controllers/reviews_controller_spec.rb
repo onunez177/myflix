@@ -45,11 +45,11 @@ describe ReviewsController do
         post :create, video_id: video1, review: {rating: 5, body: ''}
         expect(flash[:notice]).to eq("There was an error saving your review.")    
       end
-      it "renders the video show template" do
+      it "redirects back to the video show page" do
         video1 = Fabricate(:video)
       
         post :create, video_id: video1, review: {rating: 5, body: ''}
-        expect(response).to render_template 'videos/show'
+        expect(response).to redirect_to video_path(video1)
       end
     end
   end
