@@ -31,12 +31,4 @@ describe User do
     
     expect(simon.queued_videos.first.queue_position).to eq(1)
   end
-
-  it "checks to see if the user can follow another user" do
-    simon = Fabricate(:user)
-    
-
-    expect(simon.can_follow?).to eq(false)  
-  
-  end
 end
