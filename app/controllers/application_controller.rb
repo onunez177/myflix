@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user, :logged_in?, :in_queue?, :queue_position, :user_has_queue?, :user_reviewed?
+  helper_method :current_user, :logged_in?, :in_queue?, :queue_position, :user_has_queue?, :user_reviewed?, :can_follow?
   
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -33,5 +33,9 @@ class ApplicationController < ActionController::Base
 
   def user_reviewed?
     !!Review.find_by(user_id: current_user.id, video_id: @video.id)
+  end
+
+  def can_follow? # method that allows us to display follow button on user show page
+    true unless (Relationship.find_by(user_id: current_user.id, following_id: @user.id) || current_user == @user)
   end
 end
