@@ -43,14 +43,10 @@ class UsersController < ApplicationController
     session[:invite_id] = nil
   end
   
-  def charge_card # we will run validations using the custom js form, no need for validations here now
-    
-    Stripe.api_key = ENV["STRIPE_SECRET_KEY"] # will need to set this to secret key in production env
-   
-    token = params[:stripeToken]   
-      charge = StripeWrapper::Charge.create(
+  def charge_card # we will run validations using the custom js form, no need for validations here now   
+    StripeWrapper::Charge.create(
         :amount => 999, # amount in cents, again
-        :card => token,
+        :card => params[:stripeToken],
         :description => "#{@user.email} payment to sign up for MyFlix"
       )
    end
