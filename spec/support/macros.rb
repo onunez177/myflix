@@ -29,10 +29,10 @@ def set_admin(user=nil)
   session[:user_id] = user.id
 end
 
-def stripe_token
+def stripe_token(card_number) # we will pass in a card so we can test against valid/invalid CCs
   Stripe::Token.create(
       :card => {
-      :number => "4242424242424242",
+      :number => card_number,
       :exp_month => 11,
       :exp_year => 2014,
       :cvc => "314"
