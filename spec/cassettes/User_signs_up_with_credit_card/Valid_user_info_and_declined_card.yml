@@ -1,0 +1,2642 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://127.0.0.1:59722/__identify__
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: ! 'OK '
+    headers:
+      Server:
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-04-20)
+      Date:
+      - Fri, 29 Nov 2013 22:21:05 GMT
+      Content-Length:
+      - '10'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: US-ASCII
+      string: '2201891340'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:05 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session
+    body:
+      encoding: US-ASCII
+      string: ! '{"desiredCapabilities":{"browserName":"chrome","version":"","platform":"ANY","javascriptEnabled":true,"cssSelectorsEnabled":true,"takesScreenshot":false,"nativeEvents":false,"rotatable":false,"chromeOptions":{"detach":true},"chrome.detach":true}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '246'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '571'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":{"acceptSslCerts":true,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"browserName":"chrome","chrome":{"userDataDir":"/var/folders/u0/u00BG8YtFFiLUFR49liqNE+++TI/-Tmp-/.org.chromium.Chromium.KI53s3"},"cssSelectorsEnabled":true,"databaseEnabled":false,"handlesAlerts":true,"javascriptEnabled":true,"locationContextEnabled":true,"nativeEvents":true,"platform":"Mac
+        OS X","rotatable":false,"takesHeapSnapshot":true,"takesScreenshot":true,"version":"31.0.1650.57","webStorageEnabled":true}}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:06 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/url
+    body:
+      encoding: US-ASCII
+      string: ! '{"url":"http://127.0.0.1:59722/register"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '41'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:08 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/elements
+    body:
+      encoding: US-ASCII
+      string: ! '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = ''Full Name'' or
+        ./@name = ''Full Name'') or ./@placeholder = ''Full Name'') or ./@id = //label[normalize-space(string(.))
+        = ''Full Name'']/@for)] | .//label[normalize-space(string(.)) = ''Full Name'']//.//*[self::input
+        | self::textarea][not(./@type = ''submit'' or ./@type = ''image'' or ./@type
+        = ''radio'' or ./@type = ''checkbox'' or ./@type = ''hidden'' or ./@type =
+        ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '567'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '105'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":[{"ELEMENT":"0.03337218938395381-1"}]}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:08 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-1/displayed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:08 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-1/enabled
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:08 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-1/name
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '75'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":"input"}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:08 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-1/attribute/type
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '74'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":"text"}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:08 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-1/attribute/readonly
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:08 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/execute
+    body:
+      encoding: US-ASCII
+      string: ! '{"script":"arguments[0].value = ''''","args":[{"ELEMENT":"0.03337218938395381-1"}]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '81'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:08 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-1/value
+    body:
+      encoding: US-ASCII
+      string: ! '{"value":["Paul Sandhu"]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '25'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:08 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/elements
+    body:
+      encoding: US-ASCII
+      string: ! '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = ''Email Address''
+        or ./@name = ''Email Address'') or ./@placeholder = ''Email Address'') or
+        ./@id = //label[normalize-space(string(.)) = ''Email Address'']/@for)] | .//label[normalize-space(string(.))
+        = ''Email Address'']//.//*[self::input | self::textarea][not(./@type = ''submit''
+        or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox'' or
+        ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '587'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '105'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":[{"ELEMENT":"0.03337218938395381-2"}]}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:08 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-2/displayed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:08 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-2/enabled
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:08 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-2/name
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '75'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":"input"}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:08 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-2/attribute/type
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '75'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":"email"}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:08 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-2/attribute/readonly
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:08 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/execute
+    body:
+      encoding: US-ASCII
+      string: ! '{"script":"arguments[0].value = ''''","args":[{"ELEMENT":"0.03337218938395381-2"}]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '81'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:09 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-2/value
+    body:
+      encoding: US-ASCII
+      string: ! '{"value":["test@test.com"]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '27'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:09 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/elements
+    body:
+      encoding: US-ASCII
+      string: ! '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = ''Password'' or
+        ./@name = ''Password'') or ./@placeholder = ''Password'') or ./@id = //label[normalize-space(string(.))
+        = ''Password'']/@for)] | .//label[normalize-space(string(.)) = ''Password'']//.//*[self::input
+        | self::textarea][not(./@type = ''submit'' or ./@type = ''image'' or ./@type
+        = ''radio'' or ./@type = ''checkbox'' or ./@type = ''hidden'' or ./@type =
+        ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '562'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '105'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":[{"ELEMENT":"0.03337218938395381-3"}]}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:09 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-3/displayed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:09 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-3/enabled
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:09 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-3/name
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '75'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":"input"}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:09 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-3/attribute/type
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '78'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":"password"}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:09 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-3/attribute/readonly
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:09 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/execute
+    body:
+      encoding: US-ASCII
+      string: ! '{"script":"arguments[0].value = ''''","args":[{"ELEMENT":"0.03337218938395381-3"}]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '81'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:09 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-3/value
+    body:
+      encoding: US-ASCII
+      string: ! '{"value":["password"]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '22'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:10 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/elements
+    body:
+      encoding: US-ASCII
+      string: ! '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = ''Credit Card Number''
+        or ./@name = ''Credit Card Number'') or ./@placeholder = ''Credit Card Number'')
+        or ./@id = //label[normalize-space(string(.)) = ''Credit Card Number'']/@for)]
+        | .//label[normalize-space(string(.)) = ''Credit Card Number'']//.//*[self::input
+        | self::textarea][not(./@type = ''submit'' or ./@type = ''image'' or ./@type
+        = ''radio'' or ./@type = ''checkbox'' or ./@type = ''hidden'' or ./@type =
+        ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '612'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '105'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":[{"ELEMENT":"0.03337218938395381-4"}]}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:10 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-4/displayed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:10 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-4/enabled
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:10 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-4/name
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '75'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":"input"}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:10 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-4/attribute/type
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '74'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":"text"}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:10 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-4/attribute/readonly
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:10 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/execute
+    body:
+      encoding: US-ASCII
+      string: ! '{"script":"arguments[0].value = ''''","args":[{"ELEMENT":"0.03337218938395381-4"}]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '81'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:10 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-4/value
+    body:
+      encoding: US-ASCII
+      string: ! '{"value":["4000 0000 0000 0002"]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '33'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:10 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/elements
+    body:
+      encoding: US-ASCII
+      string: ! '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = ''Security Code''
+        or ./@name = ''Security Code'') or ./@placeholder = ''Security Code'') or
+        ./@id = //label[normalize-space(string(.)) = ''Security Code'']/@for)] | .//label[normalize-space(string(.))
+        = ''Security Code'']//.//*[self::input | self::textarea][not(./@type = ''submit''
+        or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox'' or
+        ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '587'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '105'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":[{"ELEMENT":"0.03337218938395381-5"}]}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:10 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-5/displayed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:10 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-5/enabled
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:10 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-5/name
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '75'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":"input"}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:10 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-5/attribute/type
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '74'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":"text"}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:10 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-5/attribute/readonly
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:10 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/execute
+    body:
+      encoding: US-ASCII
+      string: ! '{"script":"arguments[0].value = ''''","args":[{"ELEMENT":"0.03337218938395381-5"}]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '81'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:10 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-5/value
+    body:
+      encoding: US-ASCII
+      string: ! '{"value":["123"]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '17'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/elements
+    body:
+      encoding: US-ASCII
+      string: ! '{"using":"xpath","value":".//select[(((./@id = ''date_month'' or
+        ./@name = ''date_month'') or ./@placeholder = ''date_month'') or ./@id = //label[normalize-space(string(.))
+        = ''date_month'']/@for)] | .//label[normalize-space(string(.)) = ''date_month'']//.//select"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '256'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '105'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":[{"ELEMENT":"0.03337218938395381-6"}]}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-6/displayed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-6/enabled
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-6/elements
+    body:
+      encoding: US-ASCII
+      string: ! '{"using":"xpath","value":".//option[normalize-space(string(.)) =
+        ''11 - November'']"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '83'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '105'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":[{"ELEMENT":"0.03337218938395381-7"}]}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-7/displayed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-7/selected
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/elements
+    body:
+      encoding: US-ASCII
+      string: ! '{"using":"xpath","value":".//select[(((./@id = ''date_year'' or ./@name
+        = ''date_year'') or ./@placeholder = ''date_year'') or ./@id = //label[normalize-space(string(.))
+        = ''date_year'']/@for)] | .//label[normalize-space(string(.)) = ''date_year'']//.//select"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '251'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '105'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":[{"ELEMENT":"0.03337218938395381-8"}]}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-8/displayed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-8/enabled
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-8/elements
+    body:
+      encoding: US-ASCII
+      string: ! '{"using":"xpath","value":".//option[normalize-space(string(.)) =
+        ''2016'']"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '74'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '105'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":[{"ELEMENT":"0.03337218938395381-9"}]}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-9/displayed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-9/selected
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '73'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":false}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-9/click
+    body:
+      encoding: US-ASCII
+      string: ! '{}'
+    headers:
+      Accept:
+      - application/json
+      Content-Length:
+      - '2'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/elements
+    body:
+      encoding: US-ASCII
+      string: ! '{"using":"xpath","value":".//a[./@href][(((./@id = ''Sign Up'' or
+        normalize-space(string(.)) = ''Sign Up'') or ./@title = ''Sign Up'') or .//img[./@alt
+        = ''Sign Up''])] | .//input[./@type = ''submit'' or ./@type = ''reset'' or
+        ./@type = ''image'' or ./@type = ''button''][((./@id = ''Sign Up'' or ./@value
+        = ''Sign Up'') or ./@title = ''Sign Up'')] | .//input[./@type = ''image''][./@alt
+        = ''Sign Up''] | .//button[(((./@id = ''Sign Up'' or ./@value = ''Sign Up'')
+        or normalize-space(string(.)) = ''Sign Up'') or ./@title = ''Sign Up'')] |
+        .//input[./@type = ''image''][./@alt = ''Sign Up'']"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '555'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '106'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":[{"ELEMENT":"0.03337218938395381-10"}]}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-10/displayed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-10/name
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '75'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":"input"}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-10/enabled
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-10/click
+    body:
+      encoding: US-ASCII
+      string: ! '{}'
+    headers:
+      Accept:
+      - application/json
+      Content-Length:
+      - '2'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/elements
+    body:
+      encoding: US-ASCII
+      string: ! '{"using":"xpath","value":"/html"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '33'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '106'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":[{"ELEMENT":"0.03337218938395381-11"}]}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-11/displayed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-11/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '426'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":"MyFLiX\nRegister\nFull
+        Name\nEmail Address\nPassword\nCredit Card Number\n(enter 4242 4242 4242 4242)\nSecurity
+        Code\n(enter any 3 digit code)\nExpiration\n1 - January\n2 - February\n3 -
+        March\n4 - April\n5 - May\n6 - June\n7 - July\n8 - August\n9 - September\n10
+        - October\n11 - November\n12 - December\n \n2013\n2014\n2015\n2016\n2017\n\u00A9
+        2013 MyFLiX"}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/elements
+    body:
+      encoding: US-ASCII
+      string: ! '{"using":"xpath","value":"/html"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '33'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '106'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":[{"ELEMENT":"0.03337218938395381-11"}]}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-11/displayed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-11/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '426'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":"MyFLiX\nRegister\nFull
+        Name\nEmail Address\nPassword\nCredit Card Number\n(enter 4242 4242 4242 4242)\nSecurity
+        Code\n(enter any 3 digit code)\nExpiration\n1 - January\n2 - February\n3 -
+        March\n4 - April\n5 - May\n6 - June\n7 - July\n8 - August\n9 - September\n10
+        - October\n11 - November\n12 - December\n \n2013\n2014\n2015\n2016\n2017\n\u00A9
+        2013 MyFLiX"}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:11 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/elements
+    body:
+      encoding: US-ASCII
+      string: ! '{"using":"xpath","value":"/html"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '33'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '106'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":[{"ELEMENT":"0.03337218938395381-11"}]}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:12 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-11/displayed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:12 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-11/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '426'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":"MyFLiX\nRegister\nFull
+        Name\nEmail Address\nPassword\nCredit Card Number\n(enter 4242 4242 4242 4242)\nSecurity
+        Code\n(enter any 3 digit code)\nExpiration\n1 - January\n2 - February\n3 -
+        March\n4 - April\n5 - May\n6 - June\n7 - July\n8 - August\n9 - September\n10
+        - October\n11 - November\n12 - December\n \n2013\n2014\n2015\n2016\n2017\n\u00A9
+        2013 MyFLiX"}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:12 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/elements
+    body:
+      encoding: US-ASCII
+      string: ! '{"using":"xpath","value":"/html"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '33'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '106'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":[{"ELEMENT":"0.03337218938395381-11"}]}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:12 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-11/displayed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:12 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-11/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '426'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":"MyFLiX\nRegister\nFull
+        Name\nEmail Address\nPassword\nCredit Card Number\n(enter 4242 4242 4242 4242)\nSecurity
+        Code\n(enter any 3 digit code)\nExpiration\n1 - January\n2 - February\n3 -
+        March\n4 - April\n5 - May\n6 - June\n7 - July\n8 - August\n9 - September\n10
+        - October\n11 - November\n12 - December\n \n2013\n2014\n2015\n2016\n2017\n\u00A9
+        2013 MyFLiX"}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:12 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/elements
+    body:
+      encoding: US-ASCII
+      string: ! '{"using":"xpath","value":"/html"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '33'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '106'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":[{"ELEMENT":"0.03337218938395381-11"}]}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:12 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-11/displayed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:12 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-11/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '426'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":"MyFLiX\nRegister\nFull
+        Name\nEmail Address\nPassword\nCredit Card Number\n(enter 4242 4242 4242 4242)\nSecurity
+        Code\n(enter any 3 digit code)\nExpiration\n1 - January\n2 - February\n3 -
+        March\n4 - April\n5 - May\n6 - June\n7 - July\n8 - August\n9 - September\n10
+        - October\n11 - November\n12 - December\n \n2013\n2014\n2015\n2016\n2017\n\u00A9
+        2013 MyFLiX"}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:12 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/elements
+    body:
+      encoding: US-ASCII
+      string: ! '{"using":"xpath","value":"/html"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '33'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '106'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":[{"ELEMENT":"0.03337218938395381-11"}]}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:12 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-11/displayed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:12 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-11/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '426'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":"MyFLiX\nRegister\nFull
+        Name\nEmail Address\nPassword\nCredit Card Number\n(enter 4242 4242 4242 4242)\nSecurity
+        Code\n(enter any 3 digit code)\nExpiration\n1 - January\n2 - February\n3 -
+        March\n4 - April\n5 - May\n6 - June\n7 - July\n8 - August\n9 - September\n10
+        - October\n11 - November\n12 - December\n \n2013\n2014\n2015\n2016\n2017\n\u00A9
+        2013 MyFLiX"}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:12 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/elements
+    body:
+      encoding: US-ASCII
+      string: ! '{"using":"xpath","value":"/html"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '33'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '106'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":[{"ELEMENT":"0.03337218938395381-11"}]}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:12 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-11/displayed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":true}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:12 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-11/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '426'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":"MyFLiX\nRegister\nFull
+        Name\nEmail Address\nPassword\nCredit Card Number\n(enter 4242 4242 4242 4242)\nSecurity
+        Code\n(enter any 3 digit code)\nExpiration\n1 - January\n2 - February\n3 -
+        March\n4 - April\n5 - May\n6 - June\n7 - July\n8 - August\n9 - September\n10
+        - October\n11 - November\n12 - December\n \n2013\n2014\n2015\n2016\n2017\n\u00A9
+        2013 MyFLiX"}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:12 GMT
+- request:
+    method: post
+    uri: https://api.stripe.com/v1/charges
+    body:
+      encoding: US-ASCII
+      string: amount=999&currency=usd&card=tok_10323k2EgJ8VpLXrLJjXj3xY&description=test%40test.com%20payment%20to%20sign%20up%20for%20MyFlix
+    headers:
+      Accept:
+      - ! '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Stripe/v1 RubyBindings/1.8.8
+      Authorization:
+      - Bearer sk_test_0GZIa56QpRrqbGHqREQCYYf5
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Stripe-Client-User-Agent:
+      - ! '{"bindings_version":"1.8.8","lang":"ruby","lang_version":"1.9.3 p194 (2012-04-20)","platform":"x86_64-darwin10.8.0","publisher":"stripe","uname":"Darwin
+        pauls-macbook-pro.local 10.8.0 Darwin Kernel Version 10.8.0: Tue Jun  7 16:33:36
+        PDT 2011; root:xnu-1504.15.3~1/RELEASE_I386 i386"}'
+      Content-Length:
+      - '127'
+  response:
+    status:
+      code: 402
+      message: Payment Required
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 29 Nov 2013 22:21:15 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '162'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
+      Access-Control-Max-Age:
+      - '300'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Cache-Control:
+      - no-cache, no-store
+    body:
+      encoding: US-ASCII
+      string: ! "{\n  \"error\": {\n    \"message\": \"Your card was declined.\",\n
+        \   \"type\": \"card_error\",\n    \"code\": \"card_declined\",\n    \"charge\":
+        \"ch_10323k2EgJ8VpLXr451JrqpP\"\n  }\n}\n"
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:15 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/elements
+    body:
+      encoding: US-ASCII
+      string: ! '{"using":"xpath","value":"/html"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '33'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '106'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":0,"value":[{"ELEMENT":"0.03337218938395381-11"}]}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:15 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:9515/session/49e7f35a48e90ec119a5c9be714ad480/element/0.03337218938395381-11/displayed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '262'
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{"sessionId":"49e7f35a48e90ec119a5c9be714ad480","status":10,"value":{"message":"stale
+        element reference: element is not attached to the page document\n  (Session
+        info: chrome=31.0.1650.57)\n  (Driver info: chromedriver=2.7.236836,platform=Mac
+        OS X 10.6.8 x86)"}}'
+    http_version: 
+  recorded_at: Fri, 29 Nov 2013 22:21:15 GMT
+recorded_with: VCR 2.8.0
