@@ -15,12 +15,15 @@ class UsersController < ApplicationController
   def create
     @user = User.new(users_params)
       
-    if @user.save
-      UserMailer.delay.notify_new_user(@user)
-      charge_card
-      create_relationship unless session[:invite_id] == nil
-      flash[:notice] = "You've successfully registered, please log in."
-      redirect_to login_path
+    if @user.valid? # check validations on user info first
+      charge = charge_card  
+      if charge.successful? # check that card was processed
+        @user.save # we only save the user if card was successfully charged
+        UserMailer.delay.notify_new_user(@user)
+        create_relationship unless session[:invite_id] == nil 
+        flash[:notice] = "You've successfully registered, please log in."
+        redirect_to login_path
+      end
     else 
       render :new
     end

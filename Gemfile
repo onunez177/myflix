@@ -36,7 +36,7 @@ group :production do
   gem 'rails_12factor'
 end
 
-group :test, :development do
+group :test do
   gem 'rspec-rails'
   gem "shoulda-matchers", "~> 2.3.0"
   gem 'fabrication'
