@@ -45,5 +45,7 @@ group :test, :development do
   gem 'launchy'
   gem 'capybara-email'
   gem 'vcr' # gem allows us test APIs without having to hit servers every time
-  gem 'webmock'
+  gem 'webmock', '1.11.0'
+  gem 'selenium-webdriver' # allows us to run feature specs w/ js 
+  gem 'database_cleaner' # need this gem to use selenium gem for tests that use js
 end

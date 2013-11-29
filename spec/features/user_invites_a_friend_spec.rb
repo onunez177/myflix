@@ -18,14 +18,19 @@ feature "User invites a friend, and friend joins the site" do
     visit logout_path 
   end
   
-  scenario "User joins site through invitation email" do
+  scenario "User joins site through invitation email", { js: true } do #stripe ui uses js so need to set to true here
 	 
     open_email("test@test.com")
     expect(current_email).to have_content("Click here to sign up!")
     
     current_email.click_link "Click here to sign up!"
+
     fill_in "Full Name", with: "Paul Sandhu"
     fill_in "Password", with: "password"
+    fill_in "Credit Card Number", with: "4242 4242 4242 4242"
+    fill_in "Security Code", with: "123"
+    select "11 - November", from: "date_month"
+    select "2016", from: "date_year"
     click_on "Sign Up"
     expect(page).to have_content("You've successfully registered, please log in.")
     
@@ -42,6 +47,3 @@ feature "User invites a friend, and friend joins the site" do
    end
 end
 
-# Question for TAs: if I try to sign_in(paul) this test will fail	
-# paul cannot sign in due his password being nil, even though it should be
-# "password". Why is this new user's password field nil even after a reload?
