@@ -16,17 +16,24 @@ class UsersController < ApplicationController
     @user = User.new(users_params)
       
     if @user.valid? # check validations on user info first
-      charge = charge_card  
+      charge = StripeWrapper::Charge.create(
+        :amount => 999, # amount in cents, again
+        :card => params[:stripeToken],
+        :description => "#{@user.email} payment to sign up for MyFlix"
+        )
       if charge.successful? # check that card was processed
         @user.save # we only save the user if card was successfully charged
         UserMailer.delay.notify_new_user(@user)
         create_relationship unless session[:invite_id] == nil 
         flash[:notice] = "You've successfully registered, please log in."
         redirect_to login_path
+      else
+        flash[:error] = charge.error_message # let customer know why they can't register
+        render :new
       end
-    else 
+    else   
       render :new
-    end
+    end    
   end
 
   def show
@@ -45,12 +52,5 @@ class UsersController < ApplicationController
     invite.user.following << @user
     session[:invite_id] = nil
   end
-  
-  def charge_card # we will run validations using the custom js form, no need for validations here now   
-    StripeWrapper::Charge.create(
-        :amount => 999, # amount in cents, again
-        :card => params[:stripeToken],
-        :description => "#{@user.email} payment to sign up for MyFlix"
-      )
-   end
+
 end

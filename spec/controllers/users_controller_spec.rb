@@ -61,24 +61,38 @@ describe UsersController do
       end
     end
 
-    context "with invalid input" do
+    context "with valid user info and declined card" do
 
-      before do
-        post :create, user: {full_name: 'Bob', email: 'email here', password: ''}
+      it "sets the @user variable" do
+        charge = double(:charge, successful?: false, error_message: "Your card was declined.")
+        StripeWrapper::Charge.stub(:create).and_return(charge)
+        post :create, user: Fabricate.to_params(:user)
+        expect(assigns(:user)).to be_instance_of(User)
       end
 
-      it "does not create the user" do        
+      it "does not save the user to the database" do        
+        charge = double(:charge, successful?: false, error_message: "Your card was declined.")
+        StripeWrapper::Charge.stub(:create).and_return(charge)
+        post :create, user: Fabricate.to_params(:user)
         expect(User.first).to eq(nil)
       end
        
       it "renders the :new template" do
+        charge = double(:charge, successful?: false, error_message: "Your card was declined.")
+        StripeWrapper::Charge.stub(:create).and_return(charge)
+        post :create, user: Fabricate.to_params(:user)
         expect(response).to render_template :new
-      end
-      it "sets the @user variable" do
-        expect(assigns(:user)).to be_instance_of(User)
       end
     end 
     
+    context "with invalid user information and valid credit card info" do
+      it "does not charge the credit card" do
+        StripeWrapper::Charge.should_not_receive(:create) #we assert that the wrapper should not call the create method
+        post :create, user:{ full_name: 'Simon Sandhu', email: '' }
+      end
+    end
+
+
     context "sending emails" do
       before do
         charge = double(:charge, successful?: true) # creating a "double" of charge
