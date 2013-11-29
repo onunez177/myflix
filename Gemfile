@@ -22,6 +22,8 @@ gem 'fog' # to setup access to Amazon S3
 gem 'unf' # needed for fog gem
 gem 'figaro' # to manage ENV variables
 
+gem 'jquery-rails' 
+
 group :development do
   gem 'sqlite3'
   gem 'pry'
@@ -34,10 +36,7 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'jquery-rails'
-
-
-group :test, :development do
+group :test do
   gem 'rspec-rails'
   gem "shoulda-matchers", "~> 2.3.0"
   gem 'fabrication'
@@ -45,4 +44,8 @@ group :test, :development do
   gem 'capybara'
   gem 'launchy'
   gem 'capybara-email'
+  gem 'vcr' # gem allows us test APIs without having to hit servers every time
+  gem 'webmock', '1.11.0'
+  gem 'selenium-webdriver' # allows us to run feature specs w/ js 
+  gem 'database_cleaner' # need this gem to use selenium gem for tests that use js
 end

@@ -29,7 +29,11 @@ def set_admin(user=nil)
   session[:user_id] = user.id
 end
 
+<<<<<<< HEAD
 def stripe_token(card_number) # pass in CC number so we can test various types of CC inputs
+=======
+def stripe_token(card_number) # we will pass in a card so we can test against valid/invalid CCs
+>>>>>>> mod13
   Stripe::Token.create(
       :card => {
       :number => card_number,
