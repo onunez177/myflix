@@ -52,19 +52,4 @@ class UsersController < ApplicationController
     invite.user.following << @user
     session[:invite_id] = nil
   end
-<<<<<<< HEAD
-  
-  def charge_card # we will run validations using the custom js form, no need for validations here now
-   
-   token = params[:stripeToken]   
-      charge = StripeWrapper::Charge.create(
-        :amount => 999, # amount in cents, again
-        :currency => "usd",
-        :card => token,
-        :description => "#{@user.email} payment to sign up for MyFlix"
-      )
-   end
-=======
-
->>>>>>> mod13
 end
