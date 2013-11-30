@@ -8,10 +8,7 @@
       .video_info.span3
         %header
           %h3= @video.name
-          - if @video.reviews.any?
-            %span Average Rating: #{@video.reviews.avg_rating}/5.0
-          - else
-            %span No user ratings for this movie.
+          =@video.rating
         %p= @video.description  
         .actions
           -if in_queue? # helper method in app controller checks to see if the video is the queue and will diplay correct button accordingly

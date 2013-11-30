@@ -2,7 +2,7 @@ class VideosController < ApplicationController
   before_action :require_user, only: [:show, :index, :search]  
   
   def show
-    @video = Video.find(params[:id])
+    @video = VideoDecorator.new(Video.find(params[:id])) # wrap the object in a decorator
     @reviews = @video.reviews 
   end
 
@@ -15,7 +15,6 @@ class VideosController < ApplicationController
   end
 
   def play
-    
     @video = Video.find(params[:video_id])
     @reviews = @video.reviews
   end
@@ -24,5 +23,4 @@ end
 
 # TODO
 # 1. Extract views to partials
-# 2. Implement validations for the search bar so blank entry cannot be valid
-#    right now a blank entry returns all videos (this is horrible)
+
