@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-   
+  before_action :require_user, only: [:show]
+  
   def new
     session[:invite_id] = nil #initialize as nil
     @invite = Invite.find_by_token(params[:invite_id])

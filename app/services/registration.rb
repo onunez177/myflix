@@ -16,7 +16,7 @@ class Registration
 				@user.save 
 				UserMailer.delay.notify_new_user(@user)
 				create_relationship unless @invite_id == nil 
-			  self
+		    self
 			else
 				@errors = charge.error_message
 			  self
