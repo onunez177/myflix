@@ -1,8 +1,8 @@
 == TODO: 
 
-[] AJAXify video player. 
-[] Allow users to update their reviews.
-[x] Feature/Integration Spec for social networking featues. 
-[x] Logic method to make follow button appear/disappear on the people page.
-[x] Spec for USER model.
-[x] Need to improve test suites to check more aggressively for fail states. ie. invites controller.
+- [] AJAXify video player. 
+- [] Allow users to update their reviews.
+- [x] Feature/Integration Spec for social networking featues. 
+- [x] Logic method to make follow button appear/disappear on the people page.
+- [x] Spec for USER model.
+- [x] Need to improve test suites to check more aggressively for fail states. ie. invites controller.
