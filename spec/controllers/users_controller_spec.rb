@@ -49,15 +49,6 @@ describe UsersController do
          post :create, user: Fabricate.to_params(:user), stripeToken: "748274"
          expect(simon.following.count).to eq(1)
         end
-
-        it "sets the session invite_id to nil" do
-          simon = Fabricate(:user)
-          invite = Invite.create(user: simon, new_user_email: "paul@test.com")
-          session[:invite_id] = simon.id
-
-          post :create, user: Fabricate.to_params(:user), stripeToken: "3657356"
-          expect(session[:invite_id]).to eq(nil)
-        end
       end
     end
 

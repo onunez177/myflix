@@ -29,5 +29,4 @@ describe 'StripeWrapper::Charge' do
       expect(test_charge.error_message).to eq("Your card was declined.")
     end
 	end
-
 end
