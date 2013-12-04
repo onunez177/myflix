@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-   
+  before_action :require_user, only: [:show]
+  
   def new
     session[:invite_id] = nil #initialize as nil
     @invite = Invite.find_by_token(params[:invite_id])
@@ -14,26 +15,14 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(users_params)
-      
-    if @user.valid? # check validations on user info first
-      charge = StripeWrapper::Charge.create(
-        :amount => 999, # amount in cents, again
-        :card => params[:stripeToken],
-        :description => "#{@user.email} payment to sign up for MyFlix"
-        )
-      if charge.successful? # check that card was processed
-        @user.save # we only save the user if card was successfully charged
-        UserMailer.delay.notify_new_user(@user)
-        create_relationship unless session[:invite_id] == nil 
-        flash[:notice] = "You've successfully registered, please log in."
-        redirect_to login_path
-      else
-        flash[:error] = charge.error_message # let customer know why they can't register
-        render :new
-      end
-    else   
+    register = Registration.new(@user,params[:stripeToken],session[:invite_id]).register # services/registration.rb      
+    if register.successful?
+      flash[:notice] = "You've successfully registered, please log in."
+      redirect_to login_path
+    else
+      flash[:error] = register.error_message # let customer know why they can't register
       render :new
-    end    
+    end
   end
 
   def show
@@ -44,12 +33,5 @@ class UsersController < ApplicationController
   
   def users_params
     params.require(:user).permit(:full_name, :password, :email) # extract strong parameters to a method
-  end
-
-  def create_relationship
-    invite = Invite.find(session[:invite_id])
-    @user.following << invite.user
-    invite.user.following << @user
-    session[:invite_id] = nil
   end
 end

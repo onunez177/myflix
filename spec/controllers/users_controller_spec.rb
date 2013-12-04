@@ -25,95 +25,39 @@ describe UsersController do
   end
 
   describe "POST create" do
-    before do
-      charge = double(:charge, successful?: true) # creating a "double" of charge 
-      StripeWrapper::Charge.stub(:create).and_return(charge) # calling the create method and forcing a return of the "double"
-    end
-    
-    context "with valid input" do
-      it "creates a new user" do
-        post :create, user: Fabricate.to_params(:user), stripeToken: "29347356"
-        expect(User.count).to eq(1)
-      end  
-      it "redirects to the sign in page" do
+    context "with successful registration" do
+      it "redirects to the login page" do
+        result = double(:register_result, successful?: true)
+        Registration.any_instance.should_receive(:register).and_return(result)
         post :create, user: Fabricate.to_params(:user), stripeToken: "2187645"
         expect(response).to redirect_to login_path
       end
-    
-     context "with invited user" do
-       it "creates a relationship" do
-         simon = Fabricate(:user)
-         invite = Invite.create(user: simon, new_user_email: "paul@test.com")
-         session[:invite_id] = simon.id
-
-         post :create, user: Fabricate.to_params(:user), stripeToken: "748274"
-         expect(simon.following.count).to eq(1)
-        end
-
-        it "sets the session invite_id to nil" do
-          simon = Fabricate(:user)
-          invite = Invite.create(user: simon, new_user_email: "paul@test.com")
-          session[:invite_id] = simon.id
-
-          post :create, user: Fabricate.to_params(:user), stripeToken: "3657356"
-          expect(session[:invite_id]).to eq(nil)
-        end
+      it "sets the flash to success" do
+        result = double(:register_result, successful?: true)
+        Registration.any_instance.should_receive(:register).and_return(result)
+        post :create, user: Fabricate.to_params(:user), stripeToken: "2187645"
+        expect(flash[:notice]).to eq("You've successfully registered, please log in.")
       end
     end
-
-    context "with valid user info and declined card" do
-
-      it "sets the @user variable" do
-        charge = double(:charge, successful?: false, error_message: "Your card was declined.")
-        StripeWrapper::Charge.stub(:create).and_return(charge)
-        post :create, user: Fabricate.to_params(:user)
-        expect(assigns(:user)).to be_instance_of(User)
-      end
-
-      it "does not save the user to the database" do        
-        charge = double(:charge, successful?: false, error_message: "Your card was declined.")
-        StripeWrapper::Charge.stub(:create).and_return(charge)
-        post :create, user: Fabricate.to_params(:user)
-        expect(User.first).to eq(nil)
-      end
-       
-      it "renders the :new template" do
-        charge = double(:charge, successful?: false, error_message: "Your card was declined.")
-        StripeWrapper::Charge.stub(:create).and_return(charge)
-        post :create, user: Fabricate.to_params(:user)
+    
+    context "with unsuccesful registration" do
+      it "renders the new template" do
+        result = double(:register_result, successful?: false, error_message: "Failure")
+        Registration.any_instance.should_receive(:register).and_return(result)
+        post :create, user: Fabricate.to_params(:user), stripeToken: "2187645"
         expect(response).to render_template :new
       end
-    end 
-    
-    context "with invalid user information and valid credit card info" do
-      it "does not charge the credit card" do
-        StripeWrapper::Charge.should_not_receive(:create) #we assert that the wrapper should not call the create method
-        post :create, user:{ full_name: 'Simon Sandhu', email: '' }
+      it "flashes the error messages" do
+        result = double(:register_result, successful?: false, error_message: "Failure")
+        Registration.any_instance.should_receive(:register).and_return(result)
+        post :create, user: Fabricate.to_params(:user), stripeToken: "2187645"
+        expect(flash[:error]).to eq("Failure")
       end
     end
-
-
-    context "sending emails" do
-      before do
-        charge = double(:charge, successful?: true) # creating a "double" of charge
-        StripeWrapper::Charge.stub(:create).and_return(charge) # calling the create method and forcing a return of the "double"
-      end 
-    
-      after { ActionMailer::Base.deliveries.clear } #clear the deliveries queue to a blank state to ensure tests are accurate
-
-      it "sends out an email to the user with valid inputs" do
-        post :create, user: {full_name: 'Simon Sandhu', email: 'simon@gmail.com', password: 'password'}, stripeToken: "37483"
-        expect(ActionMailer::Base.deliveries.last.to).to eq(['simon@gmail.com'])
-      end
-      it "sends out an email containing the user's name with valid inputs" do
-        post :create, user: {full_name: 'Simon Sandhu', email: 'simon@gmail.com', password: 'password'}, stripeToken: "e7548"
-        expect(ActionMailer::Base.deliveries.last.body).to have_content('Simon Sandhu')
-      end
-      it "does not send out an email with invalid inputs" do
-        post :create, user: {full_name: 'Simon Sandhu', email: 'simon@gmail.com', password: ''}
-        expect(ActionMailer::Base.deliveries.last).to eq(nil)
-      end
-    end   
- 
+  end 
+  
+  describe "GET show" do
+    it "sets the @user"
+    it "requires a user to be logged in"
   end
-end
+end  

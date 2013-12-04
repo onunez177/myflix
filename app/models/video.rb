@@ -12,6 +12,10 @@ class Video < ActiveRecord::Base
   mount_uploader :small_cover_url, SmallCoverUrlUploader
   
   def self.search_by_name(search_word)
-    Video.where("name LIKE ?", "#{search_word}%")  
+    if search_word.blank?
+      []
+    else
+      Video.where("LOWER(name) LIKE ?", "#{search_word.downcase}%") # modified to be case insensitive
+    end
   end
 end

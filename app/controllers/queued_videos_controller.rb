@@ -57,10 +57,10 @@ class QueuedVideosController < ApplicationController
   def update_rating(queued_video, new_queue)
     review = Review.find_by(user_id: current_user.id, video_id: queued_video.video.id)
     if review # exists?
-      review.update_attributes!(rating: new_queue['rating'], body: "I updated my last rating.")
+      review.update_attributes!(rating: new_queue['rating'])
     else # create a new review
       Review.create(rating: new_queue['rating'], video_id: queued_video.video.id, 
-                    user_id: current_user.id, body: "I rate this movie a solid #{new_queue['rating']}!")
+                    user_id: current_user.id, body: "Hmm, I guess I'll rate this movie!")
     end
   end
 end

@@ -1,8 +1,8 @@
 == TODO: 
 
-1. AJAXify video player -
-2. Feature/Integration Spec for social networking featues - COMPLETED
-3. Logic method to make follow button appear/disappear on the people page - COMPLETED
-4. Spec for USER model - COMPLETED
-5. Need to improve test suites to check more aggressively for fail states. ie. invites controller. - COMPLETED
-6. Right now, the play video feature is a cheap hack. Need to refactor entire feature, but it works for now.
+- AJAXify video player. 
+- Allow users to update their reviews.
+- Feature/Integration Spec for social networking featues. *complete*
+- Logic method to make follow button appear/disappear on the people page. *complete*
+- Spec for USER model. *complete*
+- Need to improve test suites to check more aggressively for fail states. ie. invites controller. *complete*

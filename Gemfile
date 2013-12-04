@@ -23,6 +23,7 @@ gem 'unf' # needed for fog gem
 gem 'figaro' # to manage ENV variables
 
 gem 'jquery-rails' 
+gem 'draper', '~> 1.3' # a robust decorator gem
 
 group :development do
   gem 'sqlite3'
