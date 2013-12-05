@@ -3,7 +3,12 @@ class VideosController < ApplicationController
   
   def show
     @video = VideoDecorator.new(Video.find(params[:id])) # wrap the object in a decorator
-    @reviews = @video.reviews 
+    @reviews = @video.reviews
+
+    respond_to do |format|
+      format.html
+      format.js # views/videos/show.js.erb
+    end 
   end
 
   def index 
@@ -15,7 +20,7 @@ class VideosController < ApplicationController
   end
 
   def play
-    @video = Video.find(params[:video_id])
+    @video = VideoDecorator.new(Video.find(params[:video_id]))
     @reviews = @video.reviews
   end
 end

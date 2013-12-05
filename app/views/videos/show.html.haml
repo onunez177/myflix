@@ -1,23 +1,24 @@
+= javascript_include_tag 'video'
 %article.video
   .container
     .row
       .video_large_cover.span7.offset1
-        %img(src="#{@video.poster_url}")
+        %img(src="#{@video.poster_url}" id="poster")
       .video_info.span3
         %header
           %h3= @video.name
           =@video.rating
         %p= @video.description  
         .actions
-          =link_to "Watch Now", play_video_path(video_id: @video), :method => :post, class: "btn btn-primary"
+          =link_to "Watch Now", video_path(@video), :method => :get, class: "btn btn-primary", id: "watch_now", remote: true
           -if in_queue? # helper method in app controller checks to see if the video is the queue and will diplay correct button accordingly
             %br/
             %br/
-            =link_to "Already in Queue (Position: #{queue_position})", my_queue_path, class: "btn btn-success"
+            =link_to "Already in Queue (Position: #{queue_position})", my_queue_path, class: "btn btn-success", id: "in_queue"
           -else
             %br/
             %br/ 
-            =link_to "Add to My Queue", queued_videos_path(video_id: @video), :method => :post, class: "btn" # queued videos controller #create
+            =link_to "Add to My Queue", queued_videos_path(video_id: @video), :method => :post, class: "btn", id: "add_queue" # queued videos controller #create
 
 %section.reviews.container
   .row
