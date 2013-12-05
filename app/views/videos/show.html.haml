@@ -1,4 +1,3 @@
-= javascript_include_tag 'video'
 %article.video
   .container
     .row
@@ -11,14 +10,15 @@
         %p= @video.description  
         .actions
           =link_to "Watch Now", video_path(@video), :method => :get, class: "btn btn-primary", id: "watch_now", remote: true
-          -if in_queue? # helper method in app controller checks to see if the video is the queue and will diplay correct button accordingly
-            %br/
-            %br/
-            =link_to "Already in Queue (Position: #{queue_position})", my_queue_path, class: "btn btn-success", id: "in_queue"
+          %br
+          %br
+          -if in_queue? # this conditional needs refactoring
+            =link_to "Already in Queue", my_queue_path, class: "btn btn-success", id: "in_queue"  
           -else
-            %br/
-            %br/ 
-            =link_to "Add to My Queue", queued_videos_path(video_id: @video), :method => :post, class: "btn", id: "add_queue" # queued videos controller #create
+            =link_to "Add to My Queue", queued_videos_path(video_id: @video), :method => :post, class: "btn", id: "add_queue", remote: true # 
+            .hide
+              =link_to "Already in Queue", my_queue_path, class: "btn btn-success", id: "in_queue"    
+          
 
 %section.reviews.container
   .row
