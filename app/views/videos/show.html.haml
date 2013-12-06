@@ -15,14 +15,12 @@
           -else
             =link_to "Add to My Queue", queued_videos_path(video_id: @video), :method => :post, class: "btn", id: "add_queue", remote: true # 
             .hide
-              =link_to "Already in Queue", my_queue_path, class: "btn btn-success", id: "in_queue"    
-          
-
+              =link_to "Already in Queue", my_queue_path, class: "btn btn-success", id: "in_queue" # this needs to be DRY'ed             
 %section.reviews.container
   .row
     .span10.offset1
       - unless user_reviewed? # only show the review box if the user has not reviewed the movie (helper method in app controller)
-        = bootstrap_form_for [@video, Review.new] do |f| 
+        = bootstrap_form_for [@video, Review.new], remote: true do |f| 
           %fieldset
             %label Rate this video
             = f.select :rating, options_for_video_ratings
@@ -31,7 +29,7 @@
           %fieldset.actions.clearfix
             %input(type="submit" value="Submit" class="btn")
             //= link_to "Edit", @video
-        
+    .span10.offset1  
       -if @reviews.any?
         %header
           %h3 User Reviews (#{@reviews.count})
