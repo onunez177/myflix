@@ -6,8 +6,7 @@ class Review < ActiveRecord::Base
  
   belongs_to :video
 
-  validates :body, presence: true, 
-            length: { minimum: 10 } # no garbage one word reviews
+  validates :body, presence: true, length: { minimum: 10 } # no garbage one word reviews
   validates :rating, presence: true
 
   
