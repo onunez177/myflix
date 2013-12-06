@@ -24,6 +24,8 @@ gem 'figaro' # to manage ENV variables
 
 gem 'jquery-rails' 
 gem 'draper', '~> 1.3' # a robust decorator gem
+gem 'videojs_rails' # switching to open source html5 video player
+
 
 group :development do
   gem 'sqlite3'

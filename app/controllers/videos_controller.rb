@@ -4,11 +4,6 @@ class VideosController < ApplicationController
   def show
     @video = VideoDecorator.new(Video.find(params[:id])) # wrap the object in a decorator
     @reviews = @video.reviews
-
-    respond_to do |format|
-      format.html
-      format.js # views/videos/show.js.erb
-    end 
   end
 
   def index 

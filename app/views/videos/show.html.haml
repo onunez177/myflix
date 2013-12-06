@@ -2,16 +2,14 @@
   .container
     .row
       .video_large_cover.span7.offset1
-        %img(src="#{@video.poster_url}" id="poster")
+        =videojs_rails sources: { mp4: @video.video_url }, width: "665", height: "375", poster: @video.poster_url
       .video_info.span3
         %header
           %h3= @video.name
           =@video.rating
-        %p= @video.description  
+        .description 
+          %p= @video.description  
         .actions
-          =link_to "Watch Now", video_path(@video), :method => :get, class: "btn btn-primary", id: "watch_now", remote: true
-          %br
-          %br
           -if in_queue? # this conditional needs refactoring
             =link_to "Already in Queue", my_queue_path, class: "btn btn-success", id: "in_queue"  
           -else

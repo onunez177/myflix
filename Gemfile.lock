@@ -235,6 +235,7 @@ GEM
       rack
       raindrops (~> 0.7)
     vcr (2.8.0)
+    videojs_rails (4.1.0)
     webmock (1.11.0)
       addressable (>= 2.2.7)
       crack (>= 0.3.2)
@@ -283,4 +284,5 @@ DEPENDENCIES
   unf
   unicorn
   vcr
+  videojs_rails
   webmock (= 1.11.0)
