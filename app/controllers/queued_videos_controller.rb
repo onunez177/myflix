@@ -14,6 +14,9 @@ class QueuedVideosController < ApplicationController
     
     respond_to do |format|
       format.js
+      format.html { flash[:error] = "That video is already in your queue."
+                    redirect_to video_path(video) 
+                  }
     end
   end
 
