@@ -38,5 +38,5 @@ Myflix::Application.routes.draw do
   post '/login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
   
-  mount StripeEvent::Engine => '/stripe_events' # provide a custom path
+  mount StripeEvent::Engine => '/stripe_events' # provide a custom path for stripe event gem
 end

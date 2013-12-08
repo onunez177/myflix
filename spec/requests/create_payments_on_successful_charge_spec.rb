@@ -60,4 +60,20 @@ end
     post "/stripe_events", event_data
 	  expect(Payment.count).to eq(1)
 	end
+  it "creates a payment associated with the user" do 
+    simon = Fabricate(:user, stripe_customer_id: "cus_35BbKQrp3m67sq") # token taken from the dummy event data above
+    post "/stripe_events", event_data
+    expect(Payment.first.user).to eq(simon)
+  end
+  it "creates payment with the amount for the subscription" do
+    simon = Fabricate(:user, stripe_customer_id: "cus_35BbKQrp3m67sq")
+    post "/stripe_events", event_data
+    expect(Payment.first.amount).to eq(999)
+  end
+  it "creates payment with reference number from stripe" do
+    simon = Fabricate(:user, stripe_customer_id: "cus_35BbKQrp3m67sq")
+    post "/stripe_events", event_data
+    expect(Payment.first.reference_id).to eq("ch_1035Bb2EgJ8VpLXrZUC9O7Hl")
+  end
+
 end

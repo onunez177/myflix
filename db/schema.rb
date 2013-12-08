@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131208182601) do
+ActiveRecord::Schema.define(version: 20131208191546) do
 
   create_table "genres", force: true do |t|
     t.string "name"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20131208182601) do
   create_table "payments", force: true do |t|
     t.integer "user_id"
     t.integer "amount"
-    t.integer "reference_id"
+    t.string  "reference_id"
   end
 
   create_table "queued_videos", force: true do |t|
