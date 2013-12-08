@@ -27,12 +27,30 @@ module StripeWrapper # extract Stripe to a wrapper (custom object) so we can acc
 	end
   
   class Customer
-  
-    def self.create(user,token)
-      Stripewrapper.set_api_key
-      Stripe::Customer.create(:description)
+    attr_reader :response, :status
+    
+    def initialize(response, status)
+      @response = response
+      @status = status  
     end
 
+    def self.create(user,token)
+      StripeWrapper.set_api_key
+      begin
+        response = Stripe::Customer.create(plan: "Basic", card: token, email: user.email)
+        Customer.new(response, :success)
+      rescue Stripe::CardError => e
+        Customer.new(e, :error)  
+      end
+    end
+   
+    def successful?
+      status == :success
+    end
+ 
+    def error_message
+      response.message
+    end
   end
 
   def self.set_api_key
