@@ -10,7 +10,7 @@ class QueuedVideosController < ApplicationController
     in_queue = @queued_videos.where(video_id: video.id)
     position = @queued_videos.count + 1
 
-    QueuedVideo.create(user_id: current_user.id, video_id: video.id, queue_position: position)  
+    QueuedVideo.create(user_id: current_user.id, video_id: video.id, queue_position: position) unless in_queue.any?
     
     respond_to do |format|
       format.js

@@ -6,8 +6,8 @@ describe "Registration" do
   describe "#register" do
     context "with valid user information and valid credit card" do
 	    before do
-	      charge = double(:charge, successful?: true)
-	      StripeWrapper::Charge.stub(:create).and_return(charge)
+	      customer = double(:customer, successful?: true)
+	      StripeWrapper::Customer.stub(:create).and_return(customer)
 	    end
 
 	    after do 
@@ -48,8 +48,8 @@ describe "Registration" do
   
 	  context "with valid user information and invalid credit card charge" do # not implemented yet 
 	    before do
-        charge = double(:charge, successful?: false, error_message: "Your card was declined.")
-        StripeWrapper::Charge.stub(:create).and_return(charge)
+        customer = double(:customer, successful?: false, error_message: "Your card was declined.")
+        StripeWrapper::Customer.stub(:create).and_return(customer)
 	      ActionMailer::Base.deliveries.clear
 	    end
 

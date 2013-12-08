@@ -10,15 +10,14 @@ class Registration
   
   def register
 		if @user.valid?
-			charge = StripeWrapper::Charge.create(:amount => 999, :card => @token,
-			                                      :description => "#{@user.email} payment to sign up for MyFlix")
-			if charge.successful? 
+			customer = StripeWrapper::Customer.create(@user, @token)
+			if customer.successful? 
 				@user.save 
 				UserMailer.delay.notify_new_user(@user)
 				create_relationship
 		    self
 			else
-				@errors = charge.error_message
+				@errors = customer.error_message
 			  self
 			end
 		else
