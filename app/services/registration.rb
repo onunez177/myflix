@@ -12,7 +12,8 @@ class Registration
 		if @user.valid?
 			customer = StripeWrapper::Customer.create(@user, @token)
 			if customer.successful? 
-				@user.save 
+				@user.stripe_customer_id = customer.customer_token
+        @user.save 
 				UserMailer.delay.notify_new_user(@user)
 				create_relationship
 		    self

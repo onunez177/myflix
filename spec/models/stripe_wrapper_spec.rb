@@ -46,7 +46,15 @@ describe 'StripeWrapper' do
         test_customer = StripeWrapper::Customer.create(simon, token.id)
         expect(test_customer).to be_successful
       end
-   
+      
+      it "returns the stripe customer token with method customer_token", :vcr do
+        simon = Fabricate(:user)
+        card_number = "4242 4242 4242 4242"
+        token = stripe_token(card_number)
+        test_customer = StripeWrapper::Customer.create(simon,token.id)
+        expect(test_customer.customer_token).to be_present
+      end
+
       it "does not create a new customer with invalid card", :vcr do
         simon = Fabricate(:user)
         card_number = "4000 0000 0000 0002"

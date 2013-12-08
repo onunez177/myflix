@@ -47,7 +47,11 @@ module StripeWrapper # extract Stripe to a wrapper (custom object) so we can acc
     def successful?
       status == :success
     end
- 
+    
+    def customer_token
+      response.id
+    end
+
     def error_message
       response.message
     end
