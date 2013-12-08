@@ -1,8 +1,7 @@
 == TODO: 
 
 - AJAXify video player. - half done! just need to ajax the review process!
-- Allow users to update their reviews.
-- Add user profile page.
+- Add a proper user profile page.
 - Finish e-commerce features.
 - Feature/Integration Spec for social networking featues. *complete*
 - Logic method to make follow button appear/disappear on the people page. *complete*

@@ -12,7 +12,7 @@ describe PasswordResetsController do
       end
       it "sets an error message for the user" do 
         post :create, email: 'test@test.com'
-        expect(flash[:error]).to eq('Invalid email address please try again')
+        expect(flash[:error]).to eq('Invalid email address please try again.')
       end
     end
     

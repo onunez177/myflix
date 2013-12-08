@@ -56,6 +56,7 @@ describe "Create payment on successful charge" do
   "request" => "iar_35BbtULLdPWCWs"
 }
 end
+	
 	it "creates a payment with the webhook from stripe for successful charge", :vcr do
     post "/stripe_events", event_data
 	  expect(Payment.count).to eq(1)
@@ -75,5 +76,4 @@ end
     post "/stripe_events", event_data
     expect(Payment.first.reference_id).to eq("ch_1035Bb2EgJ8VpLXrZUC9O7Hl")
   end
-
 end
