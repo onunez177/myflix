@@ -15,7 +15,7 @@ class Registration
 			if charge.successful? 
 				@user.save 
 				UserMailer.delay.notify_new_user(@user)
-				create_relationship unless @invite_id == nil 
+				create_relationship
 		    self
 			else
 				@errors = charge.error_message
@@ -38,8 +38,15 @@ class Registration
   private
 
   def create_relationship
-    invite = Invite.find(@invite_id)
-    @user.following << invite.user
-    invite.user.following << @user
+    if @invite_id
+      invite = Invite.find(@invite_id)
+      @user.following << invite.user
+      invite.user.following << @user
+    end
+    @user.following << User.first unless @user.following.include?(User.first)
+  end
+
+  def create_customer(user, token)
+    StripeWrapper::Customer.create(user, token)
   end
 end

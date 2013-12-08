@@ -13,7 +13,6 @@ class RelationshipsController < ApplicationController
 
   def create
     Relationship.create(user_id: current_user.id, following_id: params[:id]) unless current_user.id == params[:id].to_i # params comes in as string!
-    
     redirect_to people_path  
   end
 end

@@ -31,6 +31,14 @@ describe "Registration" do
 	      expect(simon.following.count).to eq(1)
 	    end  
   
+      it "automatically creates a friendship between new user and first user in system" do
+      	paul = Fabricate(:user)
+      	simon = Fabricate(:user)
+      	invite = Invite.create(user: simon, new_user_email: "test@test.com")
+      	Registration.new(Fabricate.build(:user, email: "test@test.com"), 'fake_token', invite.id).register
+      	expect(paul.followers.count).to eq(1)
+      end
+
 	    it "returns successful? as true" do
 	    	register = Registration.new(Fabricate.build(:user, email: "test@test.com"),'fake_token', nil).register
 	      expect(register.successful?).to eq(true)
