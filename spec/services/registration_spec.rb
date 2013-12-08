@@ -6,7 +6,7 @@ describe "Registration" do
   describe "#register" do
     context "with valid user information and valid credit card" do
 	    before do
-	      customer = double(:customer, successful?: true)
+	      customer = double(:customer, successful?: true, customer_token: '12345')
 	      StripeWrapper::Customer.stub(:create).and_return(customer)
 	    end
 
@@ -44,6 +44,10 @@ describe "Registration" do
 	      expect(register.successful?).to eq(true)
 	    end
 	  
+	    it "adds stripe customer token to the database" do
+	      Registration.new(Fabricate.build(:user, email: "simon@test.com"), 'fake_token', nil).register
+	      expect(User.first.stripe_customer_id).to eq('12345') 
+	    end
 	  end	
   
 	  context "with valid user information and invalid credit card charge" do # not implemented yet 
