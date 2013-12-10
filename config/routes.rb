@@ -9,8 +9,12 @@ Myflix::Application.routes.draw do
   end
   
   namespace :admin do
-    resources :videos, only: [:index, :create, :new]
+    resources :videos, only: [:create, :new]
+    resources :payments, only: [:index]
+    get 'dashboard', to: 'dashboards#show'
   end
+  
+
 
   resources :genres, only: [:show]
   resources :users, only: [:create, :show] 

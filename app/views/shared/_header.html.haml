@@ -22,7 +22,7 @@
             %li
               = link_to "Profile", user_path(current_user)
               - if current_user.admin?
-                = link_to "Admin Page", admin_videos_path
+                = link_to "Admin Page", admin_dashboard_path
               %a(href="#") Account
               %a(href="#") Plan and Billing
               = link_to "Log out", logout_path

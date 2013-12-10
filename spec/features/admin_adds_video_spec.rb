@@ -20,7 +20,7 @@ feature "admin signs in and adds a video" do
     fill_in "Name", :with => "Test Video Name"
     page.select Comedy.name, :from => "Genre"
     fill_in "Description", :with => "This is a test video!"
-    page.attach_file("video_poster_url", "spec/features/test1.txt") # need a txt file or something similar here
+    page.attach_file("video_poster_url", "spec/features/test1.txt")
     page.attach_file("video_small_cover_url", "spec/features/test2.txt")
     fill_in "Video URL", :with => "http://test_url.com"
     

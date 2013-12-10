@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id 
       flash[:notice] = "Successfully logged in, welcome #{current_user.full_name}"
-      redirect_to current_user.admin? ? admin_videos_path : videos_path
+      redirect_to current_user.admin? ? admin_dashboard_path : videos_path
     else
       flash[:error] = "Invalid username/password. Please try again"
       redirect_to login_path

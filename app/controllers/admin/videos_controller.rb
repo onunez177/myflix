@@ -1,15 +1,9 @@
 class Admin::VideosController < AdminsController
-
-	def index
-	  
-	end
-
 	def new
 	  @video = Video.new
   end
 
 	def create
-	  
     @video = Video.new(videos_params)
     if @video.save
       @video.genres << Genre.find(params[:genres])  
@@ -21,9 +15,7 @@ class Admin::VideosController < AdminsController
     end
   end
 
-
   private
-  
   def videos_params
     params.require(:video).permit(:name, :description, :poster_url, :small_cover_url, :video_url)
   end
