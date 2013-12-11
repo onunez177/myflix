@@ -6,13 +6,12 @@ class SessionsController < ApplicationController
   
   def create
     user = User.find_by(email: params[:email])
-    
-    if user && user.authenticate(params[:password])
+    if user && user.authenticate(params[:password]) && user.active?
       session[:user_id] = user.id 
       flash[:notice] = "Successfully logged in, welcome #{current_user.full_name}"
       redirect_to current_user.admin? ? admin_dashboard_path : videos_path
     else
-      flash[:error] = "Invalid username/password. Please try again"
+      flash[:error] = user.active? ? "Invalid username/password. Please try again" : "We're sorry but your account has been suspended. Please contact an administrator." 
       redirect_to login_path
     end
   end
