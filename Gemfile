@@ -40,8 +40,11 @@ group :production do
   gem 'rails_12factor'
 end
 
-group :test do
+group :test, :development do
   gem 'rspec-rails'
+end
+
+group :test do
   gem "shoulda-matchers", "~> 2.3.0"
   gem 'fabrication'
   gem 'faker'
