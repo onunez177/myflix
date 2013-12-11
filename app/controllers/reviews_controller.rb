@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
     else
       redirect_to video_path(@video), notice: "There was an error saving your review."
     end
-	end
+  end
 
   private
   def review_params
