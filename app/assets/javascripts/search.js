@@ -1,13 +1,13 @@
 $(document).ready(function(){
-    $('#submit_review').attr('disabled',true);
+    $('#search_button').attr('disabled',true);
     
-    $('#review').keyup(function(){
-        if($(this).val().length !=10){
-            $('#submit_review').attr('disabled', false);
+    $('#search').keyup(function(){
+        if($(this).val().length !=0){
+            $('#search_button').attr('disabled', false);
         }
         else
         {
-            $('#submit_review').attr('disabled', true);        
+            $('#search_button').attr('disabled', true);        
         }
     })
 });
