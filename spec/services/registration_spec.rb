@@ -6,8 +6,8 @@ describe "Registration" do
   describe "#register" do
     context "with valid user information and valid credit card" do
 	    before do
-	      charge = double(:charge, successful?: true)
-	      StripeWrapper::Charge.stub(:create).and_return(charge)
+	      customer = double(:customer, successful?: true, customer_token: '12345')
+	      StripeWrapper::Customer.stub(:create).and_return(customer)
 	    end
 
 	    after do 
@@ -31,17 +31,29 @@ describe "Registration" do
 	      expect(simon.following.count).to eq(1)
 	    end  
   
+      it "automatically creates a friendship between new user and first user in system" do
+      	paul = Fabricate(:user)
+      	simon = Fabricate(:user)
+      	invite = Invite.create(user: simon, new_user_email: "test@test.com")
+      	Registration.new(Fabricate.build(:user, email: "test@test.com"), 'fake_token', invite.id).register
+      	expect(paul.followers.count).to eq(1)
+      end
+
 	    it "returns successful? as true" do
 	    	register = Registration.new(Fabricate.build(:user, email: "test@test.com"),'fake_token', nil).register
 	      expect(register.successful?).to eq(true)
 	    end
 	  
+	    it "adds stripe customer token to the database" do
+	      Registration.new(Fabricate.build(:user, email: "simon@test.com"), 'fake_token', nil).register
+	      expect(User.first.stripe_customer_id).to eq('12345') 
+	    end
 	  end	
   
 	  context "with valid user information and invalid credit card charge" do # not implemented yet 
 	    before do
-        charge = double(:charge, successful?: false, error_message: "Your card was declined.")
-        StripeWrapper::Charge.stub(:create).and_return(charge)
+        customer = double(:customer, successful?: false, error_message: "Your card was declined.")
+        StripeWrapper::Customer.stub(:create).and_return(customer)
 	      ActionMailer::Base.deliveries.clear
 	    end
 

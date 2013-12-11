@@ -8,11 +8,13 @@ Myflix::Application.routes.draw do
     resources :reviews, only: [:create]
   end
   
-  post 'play_video', to: 'videos#play'
-
   namespace :admin do
-    resources :videos, only: [:index, :create, :new]
+    resources :videos, only: [:create, :new]
+    resources :payments, only: [:index]
+    get 'dashboard', to: 'dashboards#show'
   end
+  
+
 
   resources :genres, only: [:show]
   resources :users, only: [:create, :show] 
@@ -40,4 +42,5 @@ Myflix::Application.routes.draw do
   post '/login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
   
+  mount StripeEvent::Engine => '/stripe_events' # provide a custom path for stripe event gem
 end

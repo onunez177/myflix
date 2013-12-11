@@ -9,13 +9,14 @@ class QueuedVideosController < ApplicationController
     video = Video.find(params[:video_id])
     in_queue = @queued_videos.where(video_id: video.id)
     position = @queued_videos.count + 1
-      
-    if in_queue.any? # this code might be redundant, since in the view the button changes if the video is in the queue
-      flash[:error] = "That video is already in your queue."
-      redirect_to video_path(video)
-    else
-      QueuedVideo.create(user_id: current_user.id, video_id: video.id, queue_position: position)
-      redirect_to video_path(video) # re-direct back to video page, not the queue page
+
+    QueuedVideo.create(user_id: current_user.id, video_id: video.id, queue_position: position) unless in_queue.any?
+    
+    respond_to do |format|
+      format.js
+      format.html { flash[:error] = "That video is already in your queue."
+                    redirect_to video_path(video) 
+                  }
     end
   end
 

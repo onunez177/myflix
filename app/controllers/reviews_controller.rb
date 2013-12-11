@@ -2,7 +2,6 @@ class ReviewsController < ApplicationController
   before_action :require_user
   
   def create
-    
     @video = Video.find(params[:video_id])
     review = Review.new(review_params)
     review.video = @video  
@@ -15,7 +14,7 @@ class ReviewsController < ApplicationController
     else
       redirect_to video_path(@video), notice: "There was an error saving your review."
     end
-	end
+  end
 
   private
   def review_params

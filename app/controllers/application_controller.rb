@@ -26,11 +26,6 @@ class ApplicationController < ActionController::Base
     !!QueuedVideo.find_by(user_id: current_user.id, video_id: @video.id)
   end
 
-  def queue_position # this method is used to display the position of a video in the video show page
-    position = QueuedVideo.find_by(user_id: current_user.id, video_id: @video.id)
-    position.queue_position
-  end 
-
   def user_reviewed?
     !!Review.find_by(user_id: current_user.id, video_id: @video.id)
   end

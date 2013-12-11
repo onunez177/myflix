@@ -24,6 +24,9 @@ gem 'figaro' # to manage ENV variables
 
 gem 'jquery-rails' 
 gem 'draper', '~> 1.3' # a robust decorator gem
+gem 'videojs_rails' # switching to open source html5 video player
+
+gem 'stripe_event'
 
 group :development do
   gem 'sqlite3'
@@ -37,8 +40,11 @@ group :production do
   gem 'rails_12factor'
 end
 
-group :test do
+group :test, :development do
   gem 'rspec-rails'
+end
+
+group :test do
   gem "shoulda-matchers", "~> 2.3.0"
   gem 'fabrication'
   gem 'faker'

@@ -2,37 +2,35 @@
   .container
     .row
       .video_large_cover.span7.offset1
-        %img(src="#{@video.poster_url}")
+        =videojs_rails sources: { mp4: @video.video_url }, width: "665", height: "375", poster: @video.poster_url
       .video_info.span3
         %header
           %h3= @video.name
           =@video.rating
-        %p= @video.description  
+        .description 
+          %p= @video.description  
         .actions
-          =link_to "Watch Now", play_video_path(video_id: @video), :method => :post, class: "btn btn-primary"
-          -if in_queue? # helper method in app controller checks to see if the video is the queue and will diplay correct button accordingly
-            %br/
-            %br/
-            =link_to "Already in Queue (Position: #{queue_position})", my_queue_path, class: "btn btn-success"
+          -if in_queue? # this conditional needs refactoring
+            =link_to "Already in Queue", my_queue_path, class: "btn btn-success", id: "in_queue"  
           -else
-            %br/
-            %br/ 
-            =link_to "Add to My Queue", queued_videos_path(video_id: @video), :method => :post, class: "btn" # queued videos controller #create
+            =link_to "Add to My Queue", queued_videos_path(video_id: @video), :method => :post, class: "btn", id: "add_queue", remote: true # 
+            .hide
+              =link_to "Already in Queue", my_queue_path, class: "btn btn-success", id: "in_queue" # this needs to be DRY'ed             
 
 %section.reviews.container
   .row
     .span10.offset1
-      - unless user_reviewed? # only show the review box if the user has not reviewed the movie (helper method in app controller)
+      - unless user_reviewed? 
         = bootstrap_form_for [@video, Review.new] do |f| 
           %fieldset
             %label Rate this video
             = f.select :rating, options_for_video_ratings
             %label Write Review
-            = f.text_area :body, rows: 6, class: "span6"
+            = f.text_area :body, rows: 6, class: "span6", id: "review"
           %fieldset.actions.clearfix
-            %input(type="submit" value="Submit" class="btn")
-            = link_to "Cancel", @video
-        
+            %input(type="submit" value="Submit" class="btn" id="review_submit")
+            
+    .span10.offset1  
       -if @reviews.any?
         %header
           %h3 User Reviews (#{@reviews.count})
