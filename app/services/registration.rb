@@ -1,5 +1,3 @@
-require 'pry'
-
 class Registration
  
   def initialize(user,token,invite_id)
