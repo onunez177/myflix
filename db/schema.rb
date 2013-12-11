@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131208191546) do
+ActiveRecord::Schema.define(version: 20131211012753) do
 
   create_table "genres", force: true do |t|
     t.string "name"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20131208191546) do
     t.string   "token"
     t.boolean  "admin"
     t.string   "stripe_customer_id"
+    t.boolean  "active",             default: true
   end
 
   create_table "video_genres", force: true do |t|

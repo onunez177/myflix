@@ -31,4 +31,10 @@ describe User do
     
     expect(simon.queued_videos.first.queue_position).to eq(1)
   end
+  
+  it "deactivates a user account" do
+    simon = Fabricate(:user)
+    simon.deactivate!
+    expect(simon).not_to be_active
+  end
 end

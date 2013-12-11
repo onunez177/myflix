@@ -1,6 +1,3 @@
-# TODO
-# DRY up code with before blocks
-
 require 'spec_helper'
 
   describe SessionsController do
@@ -17,11 +14,6 @@ require 'spec_helper'
       end
     end
 
-	  # this is an http POST verb as per routes. it is the create ACTION
-	  # we are grabbing the email and password from the fabricated
-	  # user here. our controller then checks to see if user exists in the db
-	  # && authenticates the password then assigns the session
-	  # user_id to the user.id
     describe "POST create" do
     context "with valid credentials" do
       it "puts the signed in user, into the session" do
@@ -41,7 +33,22 @@ require 'spec_helper'
         expect(flash[:notice]).to start_with 'Success'
       end
     end
-    
+ 
+    context "with valid credentials but suspended account" do
+      it "redirects the user to the front page" do
+        simon = Fabricate(:user, active: false)
+        post :create, email: simon.email, password: simon.password
+        expect(response).to redirect_to login_path        
+      end
+
+      it "sets a flash message to have user contact a site admin" do
+        simon = Fabricate(:user, active: false)
+        post :create, email: simon.email, password: simon.password
+        expect(flash[:error]).to eq("We're sorry but your account has been suspended. Please contact an administrator.")
+      end
+    end
+
+
     context "with invalid credentials" do
       it "does not put the user into the session" do
         paul = Fabricate(:user)
@@ -60,7 +67,6 @@ require 'spec_helper'
       end
     end
   end
-  # this is the HTTP GET verb, per routes.
   describe "GET destroy" do
     it "sets the session user_id to nil" do  
       paul = Fabricate(:user)
