@@ -1,7 +1,7 @@
-== MyFlix: 
+== MyFlix
 
 MyFlix is a non-trivial production quality clone of Netflix. The UI was provided
-by the instructors at Tealeaf Academy (http://www.goteleaf.com) I developed the entire 
+by the instructors at Tealeaf Academy (http://www.gotealeaf.com) I developed the entire 
 backend of the app and deployed it via Heroku to http://ps-myflix.herokuapp.com.
 
 Key features of the MyFlix application:
@@ -13,8 +13,8 @@ processes such as iterative design and TDD.
 The application features a full test suite, testing all aspects of the application.
 Tools that were used in developing the test suite:
 
-- RSpec: the backbone of the testing suite.
-- Capybara: used in conjuction with RSpec to create high-level tests for key business features.
+- `RSpec`: the backbone of the testing suite.
+- `Capybara`: used in conjuction with RSpec to create high-level tests for key business features.
 - Selenium Webkit: used to create feature tests that require javascript.
 - VCR: used to record http responses when interacting with the Stripe API in our tests, to help speed up the test suite.
 
