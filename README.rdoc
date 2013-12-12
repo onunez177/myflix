@@ -14,11 +14,9 @@ The application features a full test suite, testing all aspects of the applicati
 Tools that were used in developing the test suite:
 
 - RSpec: the backbone of the testing suite.
-- Capybara: used in conjuction with RSpec to create high-level tests for key
-business features.
+- Capybara: used in conjuction with RSpec to create high-level tests for key business features.
 - Selenium Webkit: used to create feature tests that require javascript.
-- VCR: used to record http responses when interacting with the Stripe API
-in our tests, to help speed up the test suite.
+- VCR: used to record http responses when interacting with the Stripe API in our tests, to help speed up the test suite.
 
 == Stripe API integration (e-commerce)
 Stripe is suite of APIs that allows developers to integrate e-commerce features
@@ -26,26 +24,21 @@ into their apps. Stripe was implemented into MyFlix by creating an API wrapper,
 allowing us access the API from anywhere in the site without having to duplicate
 code. Some of the key features implemented using Stripe:
 
-- Users must enter credit card information upon registration and can only
-access the site upon successfully paying an initial subscription fee.
+- Users must enter credit card information upon registration and can only access the site upon successfully paying an initial subscription fee.
 - Integration of webhooks to listen for successful and failed payments.
 - Suspension of account services if a customer has failed to make a payment.
 
 Features that are currently scheduled to be tested and developed:
 - Users can view their current account status.
-- Upon failed payment, users will receive an email with a link to re-activate
-their account and update credit card information.
+- Upon failed payment, users will receive an email with a link to re-activate their account and update credit card information.
 
 == Authentication and Seperation of Actors
 Authentication was built from scratch for the MyFlix app. There are two
 roles that allow different levels of access to the site, regular users 
 and Administrators. Key features:
 
-- If any user ever forgets their password, they can request a password
-reset email. Each email routes to a unique url via a uniquely generated
-token on the user model.
-- Administrators can add videos to the site and also view the 10 most
-recent payments made.
+- If any user ever forgets their password, they can request a password reset email. Each email routes to a unique url via a uniquely generated token on the user model.
+- Administrators can add videos to the site and also view the 10 most recent payments made.
 
 Features that are currently scheduled to be developed:
 - Administrator can freeze accounts for deliquent behavior.
@@ -75,8 +68,7 @@ JS and Ajax are slowly being rolled out to improve the UX of MyFlix. Currently
 only a few small features use this functionality, and are all works in progress:
 
 - The search button for MyFlix is disabled unless the user fills in the search field.
-- User can add a video to their queue while watching a movie without interruption of
-video playback.
+- User can add a video to their queue while watching a movie without interruption of video playback.
 
 Currently scheduled for implementation:
 - Ajax call/update on review section on the video player page.
