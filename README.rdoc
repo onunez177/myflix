@@ -10,7 +10,7 @@ Key features of the MyFlix application:
 The entire application was built from the ground up using Agile Development
 processes such as iterative design and TDD.
 
-The application features a full test suite, testing all aspects of the application.
+The application features a full test suite, with coverage spanning nearly the entire code base. 
 Tools that were used in developing the test suite:
 
 - RSpec: the backbone of the testing suite.
@@ -71,3 +71,6 @@ only a few small features use this functionality, and are all works in progress:
 Currently scheduled for implementation:
 - Ajax call/update on review section on the video player page.
 
+== Contact
+Obviously this is just a brief summary of all the features and work that went into the development
+of MyFlix. Please contact Paul Sandhu at spaulsandhu@gmail.com if you have any questions. Thank you.
