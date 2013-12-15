@@ -21,6 +21,3 @@ class VideosController < ApplicationController
 end
 
 
-# TODO
-# 1. Extract views to partials
-

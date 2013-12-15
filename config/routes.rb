@@ -17,7 +17,9 @@ Myflix::Application.routes.draw do
 
 
   resources :genres, only: [:show]
-  resources :users, only: [:create, :show] 
+  resources :users, only: [:create, :show]
+  get 'user_billing', to: 'billings#show'
+
   resources :sessions, only: [:create]
   resources :queued_videos, only: [:create, :destroy] 
   
