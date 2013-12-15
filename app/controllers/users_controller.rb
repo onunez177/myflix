@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :require_user, only: [:show]
   
   def new
-    session[:invite_id] = nil #initialize as nil
+    session[:invite_id] = nil 
     @invite = Invite.find_by_token(params[:invite_id])
     
     if @invite
@@ -20,8 +20,7 @@ class UsersController < ApplicationController
       flash[:notice] = "You've successfully registered, please log in."
       redirect_to login_path
     else
-      flash[:error] = register.error_message # let customer know why they can't register
-      render :new
+      flash[:error] = register.error_message 
     end
   end
 
@@ -32,6 +31,5 @@ class UsersController < ApplicationController
   private
   
   def users_params
-    params.require(:user).permit(:full_name, :password, :email) # extract strong parameters to a method
-  end
+    params.require(:user).permit(:full_name, :password, :email) 
 end
