@@ -7,23 +7,23 @@ class Registration
   end
   
   def register
-		if @user.valid?
-			customer = StripeWrapper::Customer.create(@user, @token)
-			if customer.successful? 
-				@user.stripe_customer_id = customer.customer_token
+    if @user.valid?
+      customer = StripeWrapper::Customer.create(@user, @token)
+      if customer.successful? 
+        @user.stripe_customer_id = customer.customer_token
         @user.save 
-				UserMailer.delay.notify_new_user(@user)
-				create_relationship
-		    self
-			else
-				@errors = customer.error_message
-			  self
-			end
-		else
-		  @errors = "Invalid user information, please check your input."
-	    self
-	  end    
-	end
+        UserMailer.delay.notify_new_user(@user)
+        create_relationship
+        self
+      else
+        @errors = customer.error_message
+        self
+      end
+    else
+      @errors = "Invalid user information, please check your input."
+      self
+    end    
+  end
 
   def successful?
     true unless @errors
