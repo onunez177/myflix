@@ -2,7 +2,7 @@ module Tokenable # extracted this logic to a concern, any model that includes to
   extend ActiveSupport::Concern
   
   included do
-  	before_create :generate_token
+    before_create :generate_token
   end
 
   def generate_token
