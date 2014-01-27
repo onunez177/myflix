@@ -43,8 +43,4 @@ class Registration
     end
     @user.following << User.first unless @user.following.include?(User.first)
   end
-
-  def create_customer(user, token)
-    StripeWrapper::Customer.create(user, token)
-  end
 end
