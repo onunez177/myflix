@@ -5,7 +5,7 @@ describe ReviewsController do
   before { set_current_user }
 
   describe "POST create" do
-	  context "with valid input" do
+    context "with valid input" do
       it "assigns @video to the correct video" do
         video1 = Fabricate(:video)
         video2 = Fabricate(:video)
@@ -14,14 +14,14 @@ describe ReviewsController do
         expect(assigns(:video)).to eq(video2)
       end
 
-	    it "re-assigns the @reviews variable for the video view" do
+      it "re-assigns the @reviews variable for the video view" do
         video1 = Fabricate(:video)
                         
         post :create, video_id: video1, review: Fabricate.to_params(:review)
         expect(assigns(:reviews)).not_to eq(nil)
       end
          
-	    it "creates a new review for the video" do
+      it "creates a new review for the video" do
         simon = Fabricate(:user) 
         video1 = Fabricate(:video)
         review = Fabricate(:review, creator: simon, video: video1)

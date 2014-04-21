@@ -1,7 +1,7 @@
 class BillingsController < ApplicationController
+  before_action :require_user
 
   def show
-    @user = BillingDecorator.new(User.find(current_user.id))
+    @user = BillingDecorator.new(current_user)
   end
-
 end
